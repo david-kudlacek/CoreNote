@@ -58,6 +58,10 @@ class Ui_w_WelcomeForm(object):
 
         self.gridLayout_2.addWidget(self.lb_long_description, 6, 0, 1, 3)
 
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_2.addItem(self.verticalSpacer_2, 4, 1, 1, 1)
+
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_2.addItem(self.verticalSpacer, 0, 1, 1, 1)
@@ -103,10 +107,6 @@ class Ui_w_WelcomeForm(object):
         self.lb_description.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_2.addWidget(self.lb_description, 2, 0, 1, 3)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_2.addItem(self.verticalSpacer_2, 4, 1, 1, 1)
 
 
         self.gridLayout.addWidget(self.g_contents, 0, 1, 1, 1)
