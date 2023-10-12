@@ -1,0 +1,12 @@
+{
+  "en-EN": {
+    "WELCOME": "Welcome to CoreNote!",
+    "WELCOME_DESCRIPTION": "Your personal task and time manager.",
+    "GET_STARTED": "Get Started"
+  },
+  "cs-CZ": {
+    "WELCOME": "Vítejte v CoreNote!",
+    "WELCOME_DESCRIPTION": "Váš osobní úkolový a časový manažer.",
+    "GET_STARTED": "Začněte"
+  }
+}

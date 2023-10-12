@@ -1,17 +1,20 @@
+"""
+This code creates the welcome dialog window and handles the button that lets the user get started.
+"""
+
 import sys
 from PySide6 import QtCore as qtc
 from PySide6 import QtWidgets as qtw
 from PySide6 import QtGui as qtg
 
-from welcome_window import Ui_w_WelcomeForm
+from src.windows.welcome_window import welcome_window
 
 
-class WelcomeForm(qtw.QWidget, Ui_w_WelcomeForm):
-
+class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
     welcome_finished = qtc.Signal()
 
     def __init__(self):
-        super().__init__()  # Initialize QWidget
+        super().__init__()
         self.setupUi(self)
 
         self.pb_continue.clicked.connect(self.get_started)
@@ -22,10 +25,19 @@ class WelcomeForm(qtw.QWidget, Ui_w_WelcomeForm):
         self.close()
 
 
-if __name__ == "__main__":
+def construct():
     app = qtw.QApplication(sys.argv)
 
     window = WelcomeForm()
     window.show()
 
     sys.exit(app.exec())
+
+
+# if __name__ == "__main__":
+#     app = qtw.QApplication(sys.argv)
+#
+#     window = WelcomeForm()
+#     window.show()
+#
+#     sys.exit(app.exec())
