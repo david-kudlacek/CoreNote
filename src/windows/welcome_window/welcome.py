@@ -17,12 +17,12 @@ class WelcomeForm(qtw.QWidget, Ui_w_WelcomeForm):
         self.pb_continue.clicked.connect(self.get_started)
 
     @qtc.Slot()
-    def get_started(self):  # User clicks on the "Get Started" pb
+    def get_started(self):
         self.welcome_finished.emit()
         self.close()
 
 
-if __name__ == "__main__":  # Create instance and display window
+if __name__ == "__main__":
     app = qtw.QApplication(sys.argv)
 
     window = WelcomeForm()
