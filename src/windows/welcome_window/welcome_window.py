@@ -58,17 +58,17 @@ class Ui_w_WelcomeForm(object):
 
         self.gridLayout_2.addWidget(self.lb_long_description, 6, 0, 1, 3)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.bottomVSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_2.addItem(self.verticalSpacer_2, 4, 1, 1, 1)
+        self.gridLayout_2.addItem(self.bottomVSpacer, 4, 1, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.topVSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_2.addItem(self.verticalSpacer, 0, 1, 1, 1)
+        self.gridLayout_2.addItem(self.topVSpacer, 0, 1, 1, 1)
 
         self.lb_icon = QLabel(self.g_contents)
         self.lb_icon.setObjectName(u"lb_icon")
-        self.lb_icon.setMaximumSize(QSize(200, 200))
+        self.lb_icon.setMaximumSize(QSize(188, 188))
         self.lb_icon.setPixmap(QPixmap(u":/main/program.png"))
         self.lb_icon.setScaledContents(True)
 
@@ -78,6 +78,7 @@ class Ui_w_WelcomeForm(object):
         self.pb_continue.setObjectName(u"pb_continue")
         self.pb_continue.setMinimumSize(QSize(0, 0))
         self.pb_continue.setFont(font)
+        self.pb_continue.setCheckable(False)
 
         self.gridLayout_2.addWidget(self.pb_continue, 3, 1, 1, 1)
 
