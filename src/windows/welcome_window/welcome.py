@@ -19,13 +19,20 @@ class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
         super().__init__()
         self.setupUi(self)
         self.init_strings()
+        # self.init_cb_language()
 
+        self.cb_language.currentIndexChanged.connect(self.set_language)
         self.pb_continue.clicked.connect(self.get_started)
 
     @qtc.Slot()
     def get_started(self):
         self.welcome_finished.emit()
         self.close()
+
+    @qtc.Slot()
+    def set_language(self):
+        main.change_language(self.cb_language.currentText())
+        self.init_strings()
 
     def init_strings(self):
         data = strings.get_strings()
@@ -40,6 +47,12 @@ class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
         self.lb_long_description.setText(welcome_bottom)
         self.pb_continue.setText(get_started)
 
+    # def init_cb_language(self):
+    #     if main.get_language() == "en-EN":
+    #         self.cb_language.setCurrentText("English")
+    #     elif main.get_language() == "cs-CZ":
+    #         self.cb_language.setCurrentText("Čeština")
+
 
 def construct():
     app = qtw.QApplication(sys.argv)
@@ -48,7 +61,6 @@ def construct():
     window.show()
 
     sys.exit(app.exec())
-
 
 # if __name__ == "__main__":
 #     app = qtw.QApplication(sys.argv)

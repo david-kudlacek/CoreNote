@@ -109,18 +109,18 @@ class Ui_w_WelcomeForm(object):
 
         self.gridLayout_2.addWidget(self.lb_long_description, 9, 0, 1, 3)
 
-        self.comboBox = QComboBox(self.g_contents)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMaximumSize(QSize(16777215, 25))
+        self.cb_language = QComboBox(self.g_contents)
+        self.cb_language.addItem("")
+        self.cb_language.addItem("")
+        self.cb_language.setObjectName(u"cb_language")
+        self.cb_language.setMaximumSize(QSize(16777215, 25))
         font5 = QFont()
         font5.setFamilies([u"Segoe UI"])
         font5.setPointSize(10)
-        self.comboBox.setFont(font5)
-        self.comboBox.setEditable(False)
+        self.cb_language.setFont(font5)
+        self.cb_language.setEditable(False)
 
-        self.gridLayout_2.addWidget(self.comboBox, 4, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.cb_language, 4, 1, 1, 1)
 
 
         self.gridLayout.addWidget(self.g_contents, 0, 1, 1, 1)
@@ -139,8 +139,8 @@ class Ui_w_WelcomeForm(object):
         self.lb_description.setText(QCoreApplication.translate("w_WelcomeForm", u"Your personal task and time manager.", None))
         self.lb_version.setText(QCoreApplication.translate("w_WelcomeForm", u"0.0.1-alpha", None))
         self.lb_long_description.setText(QCoreApplication.translate("w_WelcomeForm", u"CoreNote is open-source and offline. Newer versions available on GitHub.", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("w_WelcomeForm", u"English", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("w_WelcomeForm", u"\u010ce\u0161tina", None))
+        self.cb_language.setItemText(0, QCoreApplication.translate("w_WelcomeForm", u"English", None))
+        self.cb_language.setItemText(1, QCoreApplication.translate("w_WelcomeForm", u"\u010ce\u0161tina", None))
 
     # retranslateUi
 

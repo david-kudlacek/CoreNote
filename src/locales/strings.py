@@ -12,7 +12,8 @@ supported_languages = ["en-EN", "cs-CZ"]
 
 # Map locale values to the BCP 47 standard format
 locale_mapping = {
-    "Czech_Czechia": "cs-CZ",
+    "Czech": "cs-CZ",
+    "English": "en-EN"
 }
 
 
