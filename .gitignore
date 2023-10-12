@@ -2,3 +2,4 @@
 *.ui
 *.pyc
 *.qrc
+settings.json

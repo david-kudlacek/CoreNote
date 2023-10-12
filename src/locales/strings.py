@@ -5,6 +5,8 @@ Contains all strings used in the project. Python files displaying text derive fr
 import os
 import json
 
+from src import main
+
 '''
 Global
 '''
@@ -17,27 +19,17 @@ locale_mapping = {
 }
 
 
-
-
-def get_strings(language):
-    # Get the current locale settings according to standard (ex. en-EN)
-    current_locale = locale.getlocale()
-    current_language = strings.locale_mapping.get(current_locale[0], current_locale[0])
-
-    # Move up three directories
-    root_dir = os.path.abspath(os.path.join(os.getcwd(), *[".."] * 3))
-    file = root_directory + "/src/locales/strings.json"
+def get_strings():
+    file = main.root_dir + "/src/locales/strings.json"
 
     with open(os.path.abspath(file), 'r', encoding="utf-8") as file:
         data = json.load(file)
-    if language in languages:
-        data = data.get(language)
+    if main.language in languages:
+        data = data.get(main.language)
     else:
         data = data.get("en-EN")
 
-    # Welcome dialog
-    if True:
-        welcome = data["WELCOME"]
+    return data
 
 
 '''

@@ -5,37 +5,39 @@ import locale
 from locales import strings
 from src.windows.welcome_window import welcome
 
+version = "0.0.1-alpha"
+file_name = "settings.json"
+root_dir = os.path.abspath(os.path.join(os.getcwd(), *[".."]))
+
 
 def init_data():
     # Get the current locale settings according to standard (ex. en-EN)
     current_locale = locale.getlocale()
     current_language = strings.locale_mapping.get(current_locale[0], current_locale[0])
 
-    # Initialize strings for current language
-    strings.init_strings(current_language, os.getcwd() + "/locales/strings.json")
+    init_json(current_language)
 
 
-def init_json():
+def init_json(lang):
     # Default JSON values
-    data = {
-        "version": "0.0.1-alpha",
-        "language": "en-EN",
+    def_data = {
+        "version": version,
+        "language": lang,
     }
 
-    file_name = "settings.json"
-
     if os.path.exists(file_name):
-        # Open the JSON file in read mode and load the data
-        with open(file_name, "r") as file:
-            data = json.load(file)
+        pass
     else:
         # Open the file in write mode and write the JSON data
-        with open(file_name, "w") as file:
-            json.dump(data, file, indent=4)
+        with open(file_name, "w") as json_file:
+            json.dump(def_data, json_file, indent=4)
 
 
 if __name__ == "__main__":
-    init_json()
     init_data()
+
+    with open(file_name, "r") as file:
+        data = json.load(file)
+        language = data["language"]
 
     welcome.construct()
