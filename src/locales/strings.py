@@ -24,8 +24,8 @@ def get_strings():
 
     with open(os.path.abspath(file), 'r', encoding="utf-8") as file:
         data = json.load(file)
-    if main.language in languages:
-        data = data.get(main.language)
+    if main.return_language() in languages:
+        data = data.get(main.return_language())
     else:
         data = data.get("en-EN")
 
@@ -35,7 +35,3 @@ def get_strings():
 '''
 Welcome Window
 '''
-
-welcome = ""
-welcome_description = ""
-get_started = ""

@@ -2,11 +2,12 @@ import json
 import os
 import locale
 
-from locales import strings
+from src.locales import strings
 from src.windows.welcome_window import welcome
 
 version = "0.0.1-alpha"
-file_name = "settings.json"
+
+settings_name = "settings.json"
 root_dir = os.path.abspath(os.path.join(os.getcwd(), *[".."]))
 
 
@@ -25,19 +26,22 @@ def init_json(lang):
         "language": lang,
     }
 
-    if os.path.exists(file_name):
+    if os.path.exists(settings_name):
         pass
     else:
         # Open the file in write mode and write the JSON data
-        with open(file_name, "w") as json_file:
+        with open(settings_name, "w") as json_file:
             json.dump(def_data, json_file, indent=4)
+
+
+def return_language():
+    with open(settings_name, "r") as file:
+        data = json.load(file)
+        language = data["language"]
+    return language
 
 
 if __name__ == "__main__":
     init_data()
-
-    with open(file_name, "r") as file:
-        data = json.load(file)
-        language = data["language"]
 
     welcome.construct()
