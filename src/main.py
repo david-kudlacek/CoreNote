@@ -42,9 +42,9 @@ def change_language(new_language):
     with open(settings_name, "r") as json_file:
         data = json.load(json_file)
     if new_language == "English":
-        data["language"] = strings.locale_mapping["English"]
+        data["language"] = "en-En"
     elif new_language == "Čeština":
-        data["language"] = strings.locale_mapping["Czech_Czechia"]
+        data["language"] = "cs-CZ"
 
     # Write the updated data back to the JSON file
     with open(settings_name, "w") as json_file:
