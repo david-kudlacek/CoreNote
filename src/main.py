@@ -34,7 +34,7 @@ def init_json(lang):
             json.dump(def_data, json_file, indent=4)
 
 
-def return_language():
+def get_language():
     with open(settings_name, "r") as file:
         data = json.load(file)
         language = data["language"]

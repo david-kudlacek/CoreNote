@@ -7,11 +7,8 @@ import json
 
 from src import main
 
-'''
-Global
-'''
 
-languages = ["en-EN", "cs-CZ"]  # Supported languages
+supported_languages = ["en-EN", "cs-CZ"]
 
 # Map locale values to the BCP 47 standard format
 locale_mapping = {
@@ -24,14 +21,9 @@ def get_strings():
 
     with open(os.path.abspath(file), 'r', encoding="utf-8") as file:
         data = json.load(file)
-    if main.return_language() in languages:
-        data = data.get(main.return_language())
+    if main.get_language() in supported_languages:
+        data = data.get(main.get_language())
     else:
         data = data.get("en-EN")
 
     return data
-
-
-'''
-Welcome Window
-'''
