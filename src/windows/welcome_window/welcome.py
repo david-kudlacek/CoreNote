@@ -62,12 +62,4 @@ def construct():
     window.show()
 
     sys.exit(app.exec())
-
-
-# if __name__ == "__main__":
-#     app = qtw.QApplication(sys.argv)
-#
-#     window = WelcomeForm()
-#     window.show()
-#
-#     sys.exit(app.exec())
+    
