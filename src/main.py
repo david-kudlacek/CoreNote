@@ -11,13 +11,6 @@ settings_name = "settings.json"
 root_dir = os.path.abspath(os.path.join(os.getcwd(), *[".."]))
 
 
-def init_data():
-    # current_locale = locale.getlocale()
-    # current_language = strings.locale_mapping.get(current_locale[0], "en-EN")
-
-    init_json()
-
-
 def init_json():
     # Default JSON values
     def_data = {
@@ -52,6 +45,6 @@ def change_language(new_language):
 
 
 if __name__ == "__main__":
-    init_data()
+    init_json()
 
     welcome.construct()
