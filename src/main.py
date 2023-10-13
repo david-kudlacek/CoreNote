@@ -1,7 +1,6 @@
 import json
 import os
 
-from src.locales import strings
 from src.windows.welcome_window import welcome
 
 version = "0.0.1-alpha"
@@ -11,7 +10,7 @@ default_application_data = {
     "version": version,
     "language": "en"
 }
-root_directory = os.path.abspath(os.path.join(os.getcwd(), *[".."]))
+root_directory = os.getcwd()[:os.getcwd().find("CoreNote") + len("CoreNote")]
 
 
 def init_data():

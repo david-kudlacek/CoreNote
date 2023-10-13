@@ -31,12 +31,12 @@ class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
 
     @qtc.Slot()
     def set_language(self):
-        strings.change_language(strings.locale_mapping[self.cb_language.currentText()])
+        strings.set_language(strings.locale_mapping[self.cb_language.currentText()])
         self.init_strings()
 
     def init_strings(self):
-        string_data = strings.get_string_data()
-        welcome = string_data["WELCOME"]
+        string_data = strings.get_strings()
+        welcome = string_data["WELCOME_TITLE"]
         welcome_description = string_data["WELCOME_DESCRIPTION"]
         welcome_bottom = string_data["WELCOME_BOTTOM"]
         get_started = string_data["GET_STARTED"]
@@ -62,6 +62,7 @@ def construct():
     window.show()
 
     sys.exit(app.exec())
+
 
 # if __name__ == "__main__":
 #     app = qtw.QApplication(sys.argv)

@@ -1,5 +1,6 @@
 """
-Contains all strings used in the project. Python files displaying text derive from this file.
+Manages all strings used in the project and locale settings.
+Project files displaying text derive from this file.
 """
 
 import os
@@ -14,11 +15,9 @@ locale_mapping = {
 }
 
 
-def get_string_data():
-    string_file = main.root_directory + "/src/locales/strings.json"
+def get_strings():
+    string_data = get_data()
 
-    with open(os.path.abspath(string_file), 'r', encoding="utf-8") as file:
-        string_data = json.load(file)
     if get_language() in supported_languages:
         string_data = string_data.get(get_language())
     else:
@@ -27,11 +26,19 @@ def get_string_data():
     return string_data
 
 
+def get_data():
+    string_file = main.root_directory + "/src/locales/strings.json"
+    with open(os.path.abspath(string_file), 'r', encoding="utf-8") as file:
+        string_data = json.load(file)
+
+    return string_data
+
+
 def get_language():
     return main.get_data()["language"]
 
 
-def change_language(new_language):
+def set_language(new_language):
     application_data = main.get_data()
     for language in supported_languages:
         if language == new_language:
