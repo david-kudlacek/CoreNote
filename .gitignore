@@ -2,4 +2,4 @@
 *.ui
 *.pyc
 *.qrc
-settings.json
+data.json
