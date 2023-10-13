@@ -1,5 +1,5 @@
 .idea/
-*.ui
+#*.ui
 *.pyc
 *.qrc
 data.json
