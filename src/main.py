@@ -15,12 +15,16 @@ root_directory = os.path.abspath(os.path.join(os.getcwd(), *[".."]))
 
 
 def init_data():
-    if not os.path.exists(data_file):
-        with open(data_file, "w") as json_file:
-            json.dump(default_application_data, json_file, indent=4)
+    with open(data_file, "w") as json_file:
+        json.dump(default_application_data, json_file, indent=4)
 
 
-def get_application_data():
+def write_data(data):
+    with open(data_file, "w") as file:
+        json.dump(data, file, indent=4)
+
+
+def get_data():
     with open(data_file, 'r') as file:
         application_data = json.load(file)
 
@@ -28,6 +32,7 @@ def get_application_data():
 
 
 if __name__ == "__main__":
-    init_data()
+    if not os.path.exists(data_file):
+        init_data()
 
     welcome.construct()

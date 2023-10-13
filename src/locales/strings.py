@@ -28,20 +28,16 @@ def get_string_data():
 
 
 def get_language():
-    return main.get_application_data()["language"]
+    return main.get_data()["language"]
 
 
 def change_language(new_language):
-    data_file = main.root_directory + "/src/data.json"
-
-    with open(data_file, "r") as file:
-        data = json.load(file)
+    application_data = main.get_data()
     for language in supported_languages:
         if language == new_language:
-            data["language"] = new_language
+            application_data["language"] = new_language
         else:
-            data["language"] = "en"
+            application_data["language"] = "en"
 
     # Write the updated data back to the JSON file
-    with open(data_file, "w") as file:
-        json.dump(data, file, indent=4)
+    main.write_data(application_data)
