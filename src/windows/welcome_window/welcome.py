@@ -31,15 +31,15 @@ class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
 
     @qtc.Slot()
     def set_language(self):
-        main.change_language(self.cb_language.currentText())
+        strings.change_language(strings.locale_mapping[self.cb_language.currentText()])
         self.init_strings()
 
     def init_strings(self):
-        data = strings.get_strings()
-        welcome = data["WELCOME"]
-        welcome_description = data["WELCOME_DESCRIPTION"]
-        welcome_bottom = data["WELCOME_BOTTOM"]
-        get_started = data["GET_STARTED"]
+        string_data = strings.get_string_data()
+        welcome = string_data["WELCOME"]
+        welcome_description = string_data["WELCOME_DESCRIPTION"]
+        welcome_bottom = string_data["WELCOME_BOTTOM"]
+        get_started = string_data["GET_STARTED"]
 
         self.lb_version.setText(main.version)
         self.g_contents.setTitle(welcome)
@@ -48,10 +48,11 @@ class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
         self.pb_continue.setText(get_started)
 
     def init_cb_language(self):
-        if main.get_language() == "en-EN":
-            self.cb_language.setCurrentText("English")
-        elif main.get_language() == "cs-CZ":
-            self.cb_language.setCurrentText("Čeština")
+        for language in strings.supported_languages:
+            if language == strings.get_language():
+                self.cb_language.setCurrentIndex(strings.supported_languages.index(language))
+            else:
+                self.cb_language.setCurrentIndex(0)
 
 
 def construct():

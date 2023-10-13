@@ -1,11 +1,11 @@
 {
-  "en-EN": {
+  "en": {
     "WELCOME": "Welcome to CoreNote!",
     "WELCOME_DESCRIPTION": "Your personal task and time manager.",
     "WELCOME_BOTTOM": "CoreNote is open-source and offline. Newer versions available on GitHub.",
     "GET_STARTED": "Get Started"
   },
-  "cs-CZ": {
+  "cs": {
     "WELCOME": "Vítejte v CoreNote!",
     "WELCOME_DESCRIPTION": "Váš osobní úkolový a časový manažer.",
     "WELCOME_BOTTOM": "CoreNote je otevřený software, který pracuje offline. Novější verze dostupné na GitHub.",
