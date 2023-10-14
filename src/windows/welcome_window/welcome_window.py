@@ -20,21 +20,21 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QGridLayout,
     QSpacerItem, QWidget)
 import resources_rc
 
-class Ui_w_WelcomeForm(object):
-    def setupUi(self, w_WelcomeForm):
-        if not w_WelcomeForm.objectName():
-            w_WelcomeForm.setObjectName(u"w_WelcomeForm")
-        w_WelcomeForm.resize(600, 409)
+class Ui_w_WelcomeWindow(object):
+    def setupUi(self, w_WelcomeWindow):
+        if not w_WelcomeWindow.objectName():
+            w_WelcomeWindow.setObjectName(u"w_WelcomeWindow")
+        w_WelcomeWindow.resize(600, 409)
         font = QFont()
         font.setFamilies([u"Segoe UI"])
         font.setPointSize(12)
-        w_WelcomeForm.setFont(font)
+        w_WelcomeWindow.setFont(font)
         icon = QIcon()
         icon.addFile(u":/main/program.png", QSize(), QIcon.Normal, QIcon.Off)
-        w_WelcomeForm.setWindowIcon(icon)
-        self.gridLayout = QGridLayout(w_WelcomeForm)
+        w_WelcomeWindow.setWindowIcon(icon)
+        self.gridLayout = QGridLayout(w_WelcomeWindow)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.g_contents = QGroupBox(w_WelcomeForm)
+        self.g_contents = QGroupBox(w_WelcomeWindow)
         self.g_contents.setObjectName(u"g_contents")
         font1 = QFont()
         font1.setFamilies([u"Segoe UI"])
@@ -125,21 +125,21 @@ class Ui_w_WelcomeForm(object):
         self.gridLayout.addWidget(self.g_contents, 0, 1, 1, 1)
 
 
-        self.retranslateUi(w_WelcomeForm)
+        self.retranslateUi(w_WelcomeWindow)
 
-        QMetaObject.connectSlotsByName(w_WelcomeForm)
+        QMetaObject.connectSlotsByName(w_WelcomeWindow)
     # setupUi
 
-    def retranslateUi(self, w_WelcomeForm):
-        w_WelcomeForm.setWindowTitle(QCoreApplication.translate("w_WelcomeForm", u"CoreNote", None))
-        self.g_contents.setTitle(QCoreApplication.translate("w_WelcomeForm", u"Welcome to CoreNote!", None))
+    def retranslateUi(self, w_WelcomeWindow):
+        w_WelcomeWindow.setWindowTitle(QCoreApplication.translate("w_WelcomeWindow", u"CoreNote", None))
+        self.g_contents.setTitle(QCoreApplication.translate("w_WelcomeWindow", u"Welcome to CoreNote!", None))
         self.lb_icon.setText("")
-        self.pb_continue.setText(QCoreApplication.translate("w_WelcomeForm", u"Get Started", None))
-        self.lb_description.setText(QCoreApplication.translate("w_WelcomeForm", u"Your personal task and time manager.", None))
-        self.lb_version.setText(QCoreApplication.translate("w_WelcomeForm", u"0.0.1-alpha", None))
-        self.lb_long_description.setText(QCoreApplication.translate("w_WelcomeForm", u"CoreNote is open-source and offline. Newer versions available on GitHub.", None))
-        self.cb_language.setItemText(0, QCoreApplication.translate("w_WelcomeForm", u"English", None))
-        self.cb_language.setItemText(1, QCoreApplication.translate("w_WelcomeForm", u"\u010ce\u0161tina", None))
+        self.pb_continue.setText(QCoreApplication.translate("w_WelcomeWindow", u"Get Started", None))
+        self.lb_description.setText(QCoreApplication.translate("w_WelcomeWindow", u"Your personal task and time manager.", None))
+        self.lb_version.setText(QCoreApplication.translate("w_WelcomeWindow", u"0.0.1-alpha", None))
+        self.lb_long_description.setText(QCoreApplication.translate("w_WelcomeWindow", u"CoreNote is open-source and offline. Newer versions available on GitHub.", None))
+        self.cb_language.setItemText(0, QCoreApplication.translate("w_WelcomeWindow", u"English", None))
+        self.cb_language.setItemText(1, QCoreApplication.translate("w_WelcomeWindow", u"\u010ce\u0161tina", None))
 
     # retranslateUi
 

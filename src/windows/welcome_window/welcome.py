@@ -12,7 +12,7 @@ from src.locales import strings
 from src import main
 
 
-class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
+class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
     welcome_finished = qtc.Signal()
 
     def __init__(self):
@@ -58,7 +58,7 @@ class WelcomeForm(qtw.QWidget, welcome_window.Ui_w_WelcomeForm):
 def construct():
     app = qtw.QApplication(sys.argv)
 
-    window = WelcomeForm()
+    window = WelcomeWindow()
     window.show()
 
     sys.exit(app.exec())
