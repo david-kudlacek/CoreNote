@@ -5,11 +5,9 @@ This code creates the welcome dialog window and handles the button that lets the
 import sys
 from PySide6 import QtCore as qtc
 from PySide6 import QtWidgets as qtw
-from PySide6 import QtGui as qtg
 
 from src.windows.welcome_window import welcome_window
-from src.locales import strings
-from src import main
+from src import main, strings
 
 
 class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):

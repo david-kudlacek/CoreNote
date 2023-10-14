@@ -1,9 +1,9 @@
 """
 Manages all strings used in the project and locale settings.
 Project files displaying text derive from this file.
+Custom and modified Qt style sheets derive from this file.
 """
 
-import os
 import json
 from src import main
 
@@ -13,6 +13,12 @@ locale_mapping = {
     "English": "en",
     "Čeština": "cs"
 }
+
+
+def get_style(style):
+    with open(main.find_file("styles.json"), 'r') as file:
+        data = json.load(file)
+    return data[style]
 
 
 def get_strings():
@@ -27,8 +33,7 @@ def get_strings():
 
 
 def get_data():
-    string_file = main.root_directory + "/src/locales/strings.json"
-    with open(os.path.abspath(string_file), 'r', encoding="utf-8") as file:
+    with open(main.find_file("strings.json"), 'r', encoding="utf-8") as file:
         string_data = json.load(file)
 
     return string_data
@@ -46,5 +51,4 @@ def set_language(new_language):
         else:
             application_data["language"] = "en"
 
-    # Write the updated data back to the JSON file
     main.write_data(application_data)
