@@ -18,8 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QGridLayout,
     QGroupBox, QLabel, QPushButton, QSizePolicy,
     QSpacerItem, QWidget)
-import icons_rc
-import icons_rc
+import resources_rc
 
 class Ui_w_WelcomeForm(object):
     def setupUi(self, w_WelcomeForm):

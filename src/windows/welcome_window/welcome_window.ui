@@ -20,7 +20,7 @@
    <string>CoreNote</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../../_icons/icons.qrc">
+   <iconset resource="../../../res/resources.qrc">
     <normaloff>:/main/program.png</normaloff>:/main/program.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -51,7 +51,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../../../_icons/icons.qrc">:/main/program.png</pixmap>
+         <pixmap resource="../../../res/resources.qrc">:/main/program.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -231,8 +231,7 @@
   <tabstop>pb_continue</tabstop>
  </tabstops>
  <resources>
-  <include location="../../../_icons/icons.qrc"/>
-  <include location="../../../_icons/icons.qrc"/>
+  <include location="../../../res/resources.qrc"/>
  </resources>
  <connections/>
 </ui>
