@@ -53,7 +53,7 @@ if __name__ == "__main__":
     if data_file is None:
         init_data()
 
-    if not get_data()["FIRST_RUN"]:
+    if get_data()["FIRST_RUN"]:
         welcome.construct()
     else:
         central.construct()
