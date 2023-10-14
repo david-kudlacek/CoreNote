@@ -17,7 +17,7 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
         self.setupUi(self)
         self.init_strings()
 
-        # self.centralwidget.setStyleSheet("background-color: #bad5ff;")
+        # self.central_widget.setStyleSheet("background-color: #bad5ff;")
         # self.mb_Menu.setStyleSheet("background-color: #f0f6ff;")
         for menu in [self.m_File, self.m_Tasks, self.m_Calendar, self.m_Help]:
             menu.setStyleSheet(strings.get_style("MENU"))
@@ -26,16 +26,19 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
 
     def init_strings(self):
         string_data = strings.get_strings()
-        # welcome = string_data["WELCOME_TITLE"]
-        # welcome_description = string_data["WELCOME_DESCRIPTION"]
-        # welcome_bottom = string_data["WELCOME_BOTTOM"]
-        # get_started = string_data["GET_STARTED"]
-        #
-        # self.lb_version.setText(main.version)
-        # self.g_contents.setTitle(welcome)
-        # self.lb_description.setText(welcome_description)
-        # self.lb_long_description.setText(welcome_bottom)
-        # self.pb_continue.setText(get_started)
+
+        menu_titles = string_data["MAIN_WINDOW_MENUS"]
+        self.m_File.setTitle(menu_titles[0])
+        self.m_Tasks.setTitle(menu_titles[1])
+        self.m_Calendar.setTitle(menu_titles[2])
+        self.m_Help.setTitle(menu_titles[3])
+
+        menu_items = string_data["MAIN_WINDOW_ITEMS"]
+        self.a_Settings.setText(menu_items[0])
+        self.a_Quit.setText(menu_items[1])
+        self.a_ViewTask.setText(menu_items[2])
+        self.a_ViewCalendar.setText(menu_items[3])
+        self.a_About.setText(menu_items[4])
 
 
 def integrity_check(app):
@@ -43,7 +46,8 @@ def integrity_check(app):
         msg_box = qtw.QMessageBox()
         msg_box.setWindowTitle("Error!")
         msg_box.setText("Missing critical files.")
-        msg_box.setDetailedText("Cannot find strings.json or styles.json file in installation. Please reinstall CoreNote at https://github.com/david-kudlacek/CoreNote.")
+        msg_box.setDetailedText(
+            "Cannot find strings.json or styles.json file in installation. Please reinstall CoreNote at https://github.com/david-kudlacek/CoreNote.")
         msg_box.show()
 
         sys.exit(app.exec())
