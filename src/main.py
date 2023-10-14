@@ -23,6 +23,7 @@ def find_file(target_file):
         if target_file in files:
             file_path = os.path.join(root, target_file)
             return file_path
+    return None
 
 
 def init_data():
@@ -45,7 +46,7 @@ def get_data():
 # RETRIEVE JSON FILE PATHS
 data_file = find_file("data.json")
 string_file = find_file("strings.json")
-style_file = find_file("style.json")
+style_file = find_file("styles.json")
 
 
 if __name__ == "__main__":

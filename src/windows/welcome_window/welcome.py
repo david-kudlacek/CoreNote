@@ -17,6 +17,8 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
         self.init_strings()
         self.init_cb_language()
 
+        # self.setFixedSize(self.size())
+
         self.cb_language.currentIndexChanged.connect(self.set_language)
         self.pb_continue.clicked.connect(self.get_started)
 
@@ -53,8 +55,21 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
                 self.cb_language.setCurrentIndex(0)
 
 
+def integrity_check(app):
+    if main.string_file is None or main.style_file is None:
+        msg_box = qtw.QMessageBox()
+        msg_box.setWindowTitle("Error!")
+        msg_box.setText("Missing critical files.")
+        msg_box.setDetailedText("Cannot find strings.json or styles.json file in installation. Please reinstall CoreNote at https://github.com/david-kudlacek/CoreNote.")
+        msg_box.show()
+
+        sys.exit(app.exec())
+
+
 def construct():
     app = qtw.QApplication(sys.argv)
+
+    integrity_check(app)
 
     window = WelcomeWindow()
     window.show()

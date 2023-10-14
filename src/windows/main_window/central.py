@@ -22,8 +22,21 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
         self.a_Quit.triggered.connect(self.close)
 
 
+def integrity_check(app):
+    if main.string_file is None or main.style_file is None:
+        msg_box = qtw.QMessageBox()
+        msg_box.setWindowTitle("Error!")
+        msg_box.setText("Missing critical files.")
+        msg_box.setDetailedText("Cannot find strings.json or styles.json file in installation. Please reinstall CoreNote at https://github.com/david-kudlacek/CoreNote.")
+        msg_box.show()
+
+        sys.exit(app.exec())
+
+
 def construct():
     app = qtw.QApplication(sys.argv)
+
+    integrity_check(app)
 
     window = MainWindow()
     window.show()
