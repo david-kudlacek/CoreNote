@@ -3,18 +3,18 @@ Handles all critical data and functions.
 Starts the application.
 """
 
-import os
 import sys
+import os
 import json
 
-from src.windows.welcome_window import welcome
 from src.windows.main_window import central
 
+version = "0.0.1-alpha"
 root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
 default_data = {
-    "version": "0.0.1-alpha",
+    "version": version,
     "language": "en",
-    "first_rune": True
+    "first_run": True
 }
 
 
@@ -50,7 +50,6 @@ style_file = find_file("styles.json")
 
 
 if __name__ == "__main__":
-    print("Hi")
     if data_file is None:
         init_data()
         os.execv(sys.executable, ['python'] + sys.argv)

@@ -26,10 +26,14 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
         self.a_Quit.triggered.connect(self.close)
         self.a_NewTask.triggered.connect(self.open_new_task)
 
-        self.form = welcome.WelcomeWindow()
-        self.form.welcome_success.connect(self.show)
-        self.form.welcome_success.connect(self.init_strings)
-        self.form.show()
+        if main.get_data()["first_run"] is True:
+            self.form = welcome.WelcomeWindow()
+            self.form.welcome_success.connect(self.show)
+            self.form.welcome_success.connect(self.init_strings)
+            self.form.show()
+        else:
+            self.init_strings()
+            self.show()
 
     @qtc.Slot()
     def open_new_task(self):
@@ -58,8 +62,7 @@ def integrity_check(app):
         msg_box = qtw.QMessageBox()
         msg_box.setWindowTitle("Error!")
         msg_box.setText("Missing critical files.")
-        msg_box.setDetailedText(
-            "Cannot find strings.json or styles.json file in installation. Please reinstall CoreNote at https://github.com/david-kudlacek/CoreNote.")
+        msg_box.setDetailedText("Cannot find strings.json or styles.json file in installation. Please reinstall CoreNote at https://github.com/david-kudlacek/CoreNote.")
         msg_box.show()
 
         sys.exit(app.exec())

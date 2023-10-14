@@ -7,7 +7,6 @@ from PySide6 import QtCore as qtc
 from PySide6 import QtWidgets as qtw
 
 from src.windows.welcome_window import welcome_window
-from src.windows.main_window import central
 from src import main, strings
 
 
