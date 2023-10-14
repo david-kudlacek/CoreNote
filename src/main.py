@@ -3,8 +3,9 @@ Handles all critical data and functions.
 Starts the application.
 """
 
-import json
 import os
+import sys
+import json
 
 from src.windows.welcome_window import welcome
 from src.windows.main_window import central
@@ -52,6 +53,7 @@ style_file = find_file("styles.json")
 if __name__ == "__main__":
     if data_file is None:
         init_data()
+        os.execv(sys.executable, ['python'] + sys.argv)
 
     if get_data()["FIRST_RUN"]:
         welcome.construct()
