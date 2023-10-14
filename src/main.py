@@ -10,10 +10,9 @@ import json
 from src.windows.welcome_window import welcome
 from src.windows.main_window import central
 
-version = "0.0.1-alpha"
 root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
 default_data = {
-    "version": version,
+    "version": "0.0.1-alpha",
     "language": "en",
     "first_rune": True
 }
