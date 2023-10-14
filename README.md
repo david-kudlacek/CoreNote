@@ -10,6 +10,6 @@ It is built with the Qt Python binding, PySide 6 and coded in Python.
 > - The ability to create, view, delete and edit tasks.
 > - A calendar for any given month
 
-<a href="https://www.flaticon.com/free-icons/code" title="code icons">Program icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons" title="icons">Icons created by Freepik - Flaticon</a>
 
 More TBA :)
