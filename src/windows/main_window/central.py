@@ -1,3 +1,7 @@
+"""
+Handles the central main window.
+"""
+
 import sys
 from PySide6 import QtCore as qtc
 from PySide6 import QtWidgets as qtw

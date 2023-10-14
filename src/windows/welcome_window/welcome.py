@@ -1,5 +1,5 @@
 """
-This code creates the welcome dialog window and handles the button that lets the user get started.
+Handles the welcome dialog window.
 """
 
 import sys

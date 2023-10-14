@@ -1,3 +1,8 @@
+"""
+Handles all critical data and functions.
+Starts the application.
+"""
+
 import json
 import os
 
