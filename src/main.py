@@ -7,12 +7,14 @@ import json
 import os
 
 from src.windows.welcome_window import welcome
+from src.windows.main_window import central
 
 version = "0.0.1-alpha"
 root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
 default_data = {
-    "version": version,
-    "language": "en"
+    "VERSION": version,
+    "LANGUAGE": "en",
+    "FIRST_RUN": True
 }
 
 
@@ -24,7 +26,7 @@ def find_file(target_file):
 
 
 def init_data():
-    with open(find_file("data.json"), "w") as file:
+    with open("data.json", "w") as file:
         json.dump(default_data, file, indent=4)
 
 
@@ -41,7 +43,11 @@ def get_data():
 
 
 if __name__ == "__main__":
-    if not os.path.exists(find_file("data.json")):
+    if find_file("data.json") is None:
         init_data()
 
-    welcome.construct()
+    if get_data()["FIRST_RUN"]:
+        welcome.construct()
+    else:
+        central.construct()
+

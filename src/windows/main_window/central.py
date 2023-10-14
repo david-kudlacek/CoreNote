@@ -17,12 +17,12 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
         self.setupUi(self)
 
         for menu in [self.m_File, self.m_Tasks, self.m_Calendar, self.m_Help]:
-            menu.setStyleSheet(strings.get_style("menu"))
+            menu.setStyleSheet(strings.get_style("MENU"))
 
         self.a_Quit.triggered.connect(self.close)
 
 
-if __name__ == "__main__":
+def construct():
     app = qtw.QApplication(sys.argv)
 
     window = MainWindow()
