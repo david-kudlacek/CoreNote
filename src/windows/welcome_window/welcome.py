@@ -11,8 +11,6 @@ from src import main, strings
 
 
 class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
-    welcome_finished = qtc.Signal()
-
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -24,7 +22,9 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
 
     @qtc.Slot()
     def get_started(self):
-        self.welcome_finished.emit()
+        data = main.get_data()
+        data["FIRST_RUN"] = False
+        main.write_data(data)
         self.close()
 
     @qtc.Slot()

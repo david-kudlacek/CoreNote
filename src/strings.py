@@ -16,7 +16,7 @@ locale_mapping = {
 
 
 def get_style(style):
-    with open(main.find_file("styles.json"), 'r') as file:
+    with open(main.style_file, 'r') as file:
         data = json.load(file)
     return data[style]
 
@@ -33,7 +33,7 @@ def get_strings():
 
 
 def get_data():
-    with open(main.find_file("strings.json"), 'r', encoding="utf-8") as file:
+    with open(main.string_file, 'r', encoding="utf-8") as file:
         string_data = json.load(file)
 
     return string_data

@@ -31,23 +31,31 @@ def init_data():
 
 
 def write_data(data):
-    with open(find_file("data.json"), "w") as file:
+    with open(data_file, "w") as file:
         json.dump(data, file, indent=4)
 
 
 def get_data():
-    with open(find_file("data.json"), 'r') as file:
+    with open(data_file, 'r') as file:
         application_data = json.load(file)
 
     return application_data
 
 
+# RETRIEVE JSON FILE PATHS
+data_file = find_file("data.json")
+string_file = find_file("strings.json")
+style_file = find_file("style.json")
+
+
 if __name__ == "__main__":
-    if find_file("data.json") is None:
+    if data_file is None:
         init_data()
 
-    if get_data()["FIRST_RUN"]:
-        welcome.construct()
-    else:
-        central.construct()
+    # if get_data()["FIRST_RUN"]:
+    #     welcome.construct()
+    # else:
+    #     central.construct()
+
+    welcome.construct()
 
