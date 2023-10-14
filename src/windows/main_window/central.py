@@ -21,7 +21,7 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
         # self.mb_Menu.setStyleSheet("background-color: #f0f6ff;")
 
         for menu in [self.m_File, self.m_Tasks, self.m_Calendar, self.m_Help]:
-            menu.setStyleSheet(strings.get_style("MENU"))
+            menu.setStyleSheet(strings.get_style("menu"))
 
         self.a_Quit.triggered.connect(self.close)
         self.a_NewTask.triggered.connect(self.open_new_task)
