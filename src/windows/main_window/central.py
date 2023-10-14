@@ -17,6 +17,8 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
         self.setupUi(self)
         self.init_strings()
 
+        # self.centralwidget.setStyleSheet("background-color: #bad5ff;")
+        # self.mb_Menu.setStyleSheet("background-color: #f0f6ff;")
         for menu in [self.m_File, self.m_Tasks, self.m_Calendar, self.m_Help]:
             menu.setStyleSheet(strings.get_style("MENU"))
 
