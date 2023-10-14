@@ -40,14 +40,14 @@ def get_data():
 
 
 def get_language():
-    return main.get_data()["LANGUAGE"]
+    return main.get_data()["language"]
 
 
 def set_language(new_language):
     application_data = main.get_data()
     for language in supported_languages:
         if language == new_language:
-            application_data["LANGUAGE"] = new_language
+            application_data["language"] = new_language
         else:
             application_data["LANGUAGE"] = "en"
 

@@ -8,6 +8,7 @@ from PySide6 import QtWidgets as qtw
 from PySide6 import QtGui as qtg
 
 from src.windows.main_window import main_window
+from src.windows.welcome_window import welcome
 from src import main, strings
 
 
@@ -15,28 +16,39 @@ class MainWindow(qtw.QMainWindow, main_window.Ui_mw_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.init_strings()
 
         # self.central_widget.setStyleSheet("background-color: #bad5ff;")
         # self.mb_Menu.setStyleSheet("background-color: #f0f6ff;")
+
         for menu in [self.m_File, self.m_Tasks, self.m_Calendar, self.m_Help]:
             menu.setStyleSheet(strings.get_style("MENU"))
 
         self.a_Quit.triggered.connect(self.close)
+        self.a_NewTask.triggered.connect(self.open_new_task)
 
+        self.form = welcome.WelcomeWindow()
+        self.form.welcome_success.connect(self.show)
+        self.form.welcome_success.connect(self.init_strings)
+        self.form.show()
+
+    @qtc.Slot()
+    def open_new_task(self):
+        pass
+
+    @qtc.Slot()
     def init_strings(self):
         string_data = strings.get_strings()
 
-        menu_titles = string_data["MAIN_WINDOW_MENUS"]
+        menu_titles = string_data["main_menus"]
         self.m_File.setTitle(menu_titles[0])
         self.m_Tasks.setTitle(menu_titles[1])
         self.m_Calendar.setTitle(menu_titles[2])
         self.m_Help.setTitle(menu_titles[3])
 
-        menu_items = string_data["MAIN_WINDOW_ITEMS"]
+        menu_items = string_data["main_items"]
         self.a_Settings.setText(menu_items[0])
         self.a_Quit.setText(menu_items[1])
-        self.a_ViewTask.setText(menu_items[2])
+        self.a_NewTask.setText(menu_items[2])
         self.a_ViewCalendar.setText(menu_items[3])
         self.a_About.setText(menu_items[4])
 
@@ -59,6 +71,5 @@ def construct():
     integrity_check(app)
 
     window = MainWindow()
-    window.show()
 
     sys.exit(app.exec())

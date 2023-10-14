@@ -1,18 +1,18 @@
 {
   "en": {
-    "WELCOME_TITLE": "Welcome to CoreNote!",
-    "WELCOME_DESCRIPTION": "Your personal task and time manager.",
-    "WELCOME_BOTTOM": "CoreNote is open-source and offline. Newer versions available on GitHub.",
-    "GET_STARTED": "Get Started",
-    "MAIN_WINDOW_MENUS": ["File", "Tasks", "Calendar", "Help"],
-    "MAIN_WINDOW_ITEMS": ["Settings", "Quit", "View Tasks", "View Calendar", "About"]
+    "welcome_title": "Welcome to CoreNote!",
+    "welcome_description": "Your personal task and time manager.",
+    "welcome_long_description": "CoreNote is open-source and offline. Newer versions available on GitHub.",
+    "welcome_get_started": "Get Started",
+    "main_menus": ["File", "Tasks", "Calendar", "Help"],
+    "main_items": ["Settings", "Quit", "New Task", "View Calendar", "About"]
   },
   "cs": {
-    "WELCOME_TITLE": "Vítejte v CoreNote!",
-    "WELCOME_DESCRIPTION": "Váš osobní úkolový a časový manažer.",
-    "WELCOME_BOTTOM": "CoreNote je otevřený software, který pracuje offline. Novější verze dostupné na GitHub.",
-    "GET_STARTED": "Začněte",
-    "MAIN_WINDOW_MENUS": ["Soubor", "Úkoly", "Kalendář", "Nápověda"],
-    "MAIN_WINDOW_ITEMS": ["Nastavení", "Ukončit", "Zobrazit úkoly", "Zobrazit kalendář", "O programu"]
+    "welcome_title": "Vítejte v CoreNote!",
+    "welcome_description": "Váš osobní úkolový a časový manažer.",
+    "welcome_long_description": "CoreNote je otevřený software, který pracuje offline. Novější verze dostupné na GitHub.",
+    "welcome_get_started": "Začněte",
+    "main_menus": ["Soubor", "Úkoly", "Kalendář", "Nápověda"],
+    "main_items": ["Nastavení", "Ukončit", "Zobrazit úkoly", "Zobrazit kalendář", "O programu"]
   }
 }

@@ -7,10 +7,13 @@ from PySide6 import QtCore as qtc
 from PySide6 import QtWidgets as qtw
 
 from src.windows.welcome_window import welcome_window
+from src.windows.main_window import central
 from src import main, strings
 
 
 class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
+    welcome_success = qtc.Signal()
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -25,8 +28,9 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
     @qtc.Slot()
     def get_started(self):
         data = main.get_data()
-        data["FIRST_RUN"] = False
+        data["first_run"] = False
         main.write_data(data)
+        self.welcome_success.emit()
         self.close()
 
     @qtc.Slot()
@@ -36,10 +40,10 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
 
     def init_strings(self):
         string_data = strings.get_strings()
-        welcome = string_data["WELCOME_TITLE"]
-        welcome_description = string_data["WELCOME_DESCRIPTION"]
-        welcome_bottom = string_data["WELCOME_BOTTOM"]
-        get_started = string_data["GET_STARTED"]
+        welcome = string_data["welcome_title"]
+        welcome_description = string_data["welcome_description"]
+        welcome_bottom = string_data["welcome_long_description"]
+        get_started = string_data["welcome_get_started"]
 
         self.lb_version.setText(main.version)
         self.g_contents.setTitle(welcome)
@@ -53,26 +57,4 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
                 self.cb_language.setCurrentIndex(strings.supported_languages.index(language))
             else:
                 self.cb_language.setCurrentIndex(0)
-
-
-def integrity_check(app):
-    if main.string_file is None or main.style_file is None:
-        msg_box = qtw.QMessageBox()
-        msg_box.setWindowTitle("Error!")
-        msg_box.setText("Missing critical files.")
-        msg_box.setDetailedText("Cannot find strings.json or styles.json file in installation. Please reinstall CoreNote at https://github.com/david-kudlacek/CoreNote.")
-        msg_box.show()
-
-        sys.exit(app.exec())
-
-
-def construct():
-    app = qtw.QApplication(sys.argv)
-
-    integrity_check(app)
-
-    window = WelcomeWindow()
-    window.show()
-
-    sys.exit(app.exec())
     
