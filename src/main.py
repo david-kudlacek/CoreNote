@@ -4,7 +4,8 @@ import os
 from src.windows.welcome_window import welcome
 
 version = "0.0.1-alpha"
-root_directory = os.getcwd()[:os.getcwd().find("CoreNote") + len("CoreNote")]
+root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
+print(root_directory)
 default_data = {
     "version": version,
     "language": "en"
