@@ -13,6 +13,6 @@
     "welcome_long_description": "CoreNote je otevřený software, který pracuje offline. Novější verze dostupné na GitHub.",
     "welcome_get_started": "Začněte",
     "main_menus": ["Soubor", "Úkoly", "Kalendář", "Nápověda"],
-    "main_items": ["Nastavení", "Ukončit", "Zobrazit úkoly", "Zobrazit kalendář", "O programu"]
+    "main_items": ["Nastavení", "Ukončit", "Nový úkol", "Zobrazit kalendář", "O programu"]
   }
 }
