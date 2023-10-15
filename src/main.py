@@ -54,11 +54,3 @@ def main():
         os.execv(sys.executable, ['python'] + sys.argv)
 
     central.construct()
-
-
-if __name__ == "__main__":
-    if data_file is None:
-        init_data()
-        os.execv(sys.executable, ['python'] + sys.argv)
-
-    central.construct()

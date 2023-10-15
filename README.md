@@ -6,6 +6,7 @@ I chose to develop a simple offline planning software type application because o
 It is built with the Qt Python binding, PySide6 and coded in Python.
 
 ## Planned features include:
+> - A welcome to program window to greet the user
 > - A main window where the user can navigate the application.
 > - The ability to create, view, delete and edit tasks.
 > - A calendar for any given month

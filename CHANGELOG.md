@@ -1,14 +1,18 @@
 ## [0.0.1] - 2023-10-15
 
 ### Added
-- Welcome dialog language menu
-- Locale tracking
+- Welcome to program window (which only runs once)
+- JSON file to keep track of data
+- Ability to choose language
+- Main window (menus and items)
+- Error popup if necessary JSON files not found in project
 
 ### Changed
-- Welcome dialog layout
+- Welcome to program window can be resized without messing up UI
+- Language can be dynamically changed for a window (based on current language in JSON)
 
 ## [Unreleased]
 
 ### Added
-- Language selection
-- Dynamic language updates to UI
+- New task window
+- Ability to create new tasks (which are saved in JSON data file)
