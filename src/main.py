@@ -43,10 +43,17 @@ def get_data():
     return application_data
 
 
-# RETRIEVE JSON FILE PATHS
 data_file = find_file("data.json")
 string_file = find_file("strings.json")
 style_file = find_file("styles.json")
+
+
+def main():
+    if data_file is None:
+        init_data()
+        os.execv(sys.executable, ['python'] + sys.argv)
+
+    central.construct()
 
 
 if __name__ == "__main__":
