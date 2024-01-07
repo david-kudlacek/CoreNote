@@ -54,3 +54,7 @@ def main():
         os.execv(sys.executable, ['python'] + sys.argv)
 
     central.construct()
+
+
+if __name__ == '__main__':
+    main()

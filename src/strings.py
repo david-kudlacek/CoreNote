@@ -49,6 +49,6 @@ def set_language(new_language):
         if language == new_language:
             application_data["language"] = new_language
         else:
-            application_data["LANGUAGE"] = "en"
+            application_data["language"] = "en"
 
     main.write_data(application_data)
