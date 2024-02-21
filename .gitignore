@@ -1,5 +1,7 @@
 # Project specific ignores
 .idea/
+build/
+dist/
 *.ui
 *.pyc
 *.qrc
