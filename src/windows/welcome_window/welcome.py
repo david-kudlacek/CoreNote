@@ -2,16 +2,15 @@
 Handles the welcome dialog window.
 """
 
-import sys
-from PySide6 import QtCore as qtc
-from PySide6 import QtWidgets as qtw
+from PySide6 import QtCore
+from PySide6 import QtWidgets
 
 from src.windows.welcome_window import welcome_window
 from src import main, strings
 
 
-class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
-    welcome_success = qtc.Signal()
+class WelcomeWindow(QtWidgets.QWidget, welcome_window.Ui_w_WelcomeWindow):
+    welcome_success = QtCore.Signal()
 
     def __init__(self):
         super().__init__()
@@ -19,12 +18,12 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
         self.init_strings()
         self.init_cb_language()
 
-        # self.setFixedSize(self.size())
+        self.setFixedSize(self.size())
 
         self.cb_language.currentIndexChanged.connect(self.set_language)
         self.pb_continue.clicked.connect(self.get_started)
 
-    @qtc.Slot()
+    @QtCore.Slot()
     def get_started(self):
         data = main.get_data()
         data["first_run"] = False
@@ -32,7 +31,7 @@ class WelcomeWindow(qtw.QWidget, welcome_window.Ui_w_WelcomeWindow):
         self.welcome_success.emit()
         self.close()
 
-    @qtc.Slot()
+    @QtCore.Slot()
     def set_language(self):
         strings.set_language(strings.locale_mapping[self.cb_language.currentText()])
         self.init_strings()

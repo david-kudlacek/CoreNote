@@ -6,7 +6,6 @@
 *.psd
 *.png
 cli.py
-data.json
 
 # Below is the default template: https://github.com/github/gitignore/blob/main/Python.gitignore
 

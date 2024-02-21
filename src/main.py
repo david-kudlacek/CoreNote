@@ -9,12 +9,17 @@ import json
 
 from src.windows.main_window import central
 
-version = "0.0.1-alpha"
+version = "1.0.0-beta"
 root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
+task_limit = 99
 default_data = {
     "version": version,
     "language": "en",
-    "first_run": True
+    "first_run": True,
+    "task_filter": 0,
+    "hide_completed": False,
+    "task_count": 0,
+    "tasks": {}
 }
 
 

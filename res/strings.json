@@ -1,18 +1,98 @@
 {
   "en": {
-    "welcome_title": "Welcome to CoreNote!",
+    "welcome_title": "Welcome to CoreNote",
     "welcome_description": "Your personal task and time manager.",
-    "welcome_long_description": "CoreNote is open-source and offline. Newer versions available on GitHub.",
+    "welcome_long_description": "CoreNote is open-source and offline.",
     "welcome_get_started": "Get Started",
     "main_menus": ["File", "Tasks", "Calendar", "Help"],
-    "main_items": ["Settings", "Quit", "New Task", "View Calendar", "About"]
+    "main_items": ["Settings", "Quit", "View Tasks", "New Task", "View Calendar", "About"],
+    "main_tabs": ["Home", "Notes"],
+    "main_home_welcome": "Welcome",
+    "main_home_date": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+      "Today is"],
+    "main_home_sections": ["Recent tasks", "Summary overview", "Quick Note"],
+    "main_home_my_day": "Finished tasks",
+    "main_home_note": "You can write here",
+    "main_home_note_buttons": ["Clear text", "Add to notes"],
+    "main_home_reminder": "Tip: hovering over a button shows its tooltip.",
+    "main_home_note_add": "Today's note has been successfully modified, you can find it in the calendar.",
+
+    "about_title": "About CoreNote",
+    "about_close": "Close",
+    "about_text":
+    ["CoreNote is a student year-round project.",
+    "Available under the Apache-2.0 license."],
+
+    "new_title": "New Task Creation",
+    "new_editing": "Task Editing",
+    "new_labels": ["Name", "Details", "Date"],
+    "new_check_box": "Task with completion date",
+    "new_placeholders": ["Name the task", "You can write here"],
+    "new_buttons": ["Add task", "Cancel selection"],
+    "new_editing_buttons": ["Edit task", "Mark task", "Remove task", "Cancel"],
+
+    "view_title": "Task List",
+    "view_bottom_help": "Clicking on a task opens editing. Hovering over a task shows a tooltip.",
+    "view_buttons": ["Erase tasks [P]", "Add new task [O]", "Close [ESC]"],
+    "view_erase_tasks": ["Are you sure?", "Confirming will erase all tasks."],
+    "view_erase_buttons": ["Confirm", "Cancel"],
+    "view_check_box": "Hide completed tasks",
+    "view_filters": ["Sort tasks by completion date, from older to newer",
+      "Sort tasks by completion date and hide tasks without it",
+      "Sort tasks alphabetically in ascending order (from A to Z)",
+      "Sort tasks alphabetically in descending order (from Z to A)"],
+
+    "settings_title": "Settings",
+    "settings_close": "Close",
+    "settings_labels": ["Display Language", "Display Mode"],
+    "settings_modes": ["Light mode", "Use system settings"]
   },
   "cs": {
-    "welcome_title": "Vítejte v CoreNote!",
+    "welcome_title": "Vítejte v CoreNote",
     "welcome_description": "Váš osobní úkolový a časový manažer.",
-    "welcome_long_description": "CoreNote je otevřený software, který pracuje offline. Novější verze dostupné na GitHub.",
+    "welcome_long_description": "CoreNote je otevřený software, který pracuje offline.",
     "welcome_get_started": "Začněte",
+
     "main_menus": ["Soubor", "Úkoly", "Kalendář", "Nápověda"],
-    "main_items": ["Nastavení", "Ukončit", "Nový úkol", "Zobrazit kalendář", "O programu"]
+    "main_items": ["Nastavení", "Ukončit", "Zobrazit úkoly", "Nový úkol", "Zobrazit kalendář", "O programu"],
+    "main_tabs": ["Domů", "Poznámky"],
+    "main_home_welcome": "Vítejte",
+    "main_home_date": ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle",
+      "Dnes je"],
+    "main_home_sections": ["Poslední úkoly", "Shrnující přehled", "Rychlá poznámka"],
+    "main_home_my_day": "Dokončených úkolů",
+    "main_home_note": "Zde se můžete rozepsat",
+    "main_home_note_buttons": ["Vymazat text", "Přidat do poznámek"],
+    "main_home_reminder": "Tip: umístěním kurzoru na tlačítko se zobrazí jeho popis.",
+    "main_home_note_add": "Dnešní poznámka byla úspěšně upravena, najdete ji v kalendáři.",
+
+    "about_title": "O CoreNote",
+    "about_close": "Zavřít",
+    "about_text":
+    ["CoreNote je celoroční studentský projekt.",
+    "Dostupný pod licencí Apache-2.0."],
+
+    "new_title": "Vytvoření nového úkolu",
+    "new_editing": "Editace úkolu",
+    "new_labels": ["Název", "Popis", "Datum"],
+    "new_check_box": "Úkol s datem dokončení",
+    "new_placeholders": ["Pojmenujte úkol", "Zde se můžete rozepsat"],
+    "new_buttons": ["Přidat úkol", "Zrušit výběr"],
+    "new_editing_buttons": ["Upravit úkol", "Označit úkol", "Odstranit úkol", "Zrušit"],
+
+    "view_title": "Seznam úkolů",
+    "view_bottom_help": "Kliknutí na úkol otevře úpravu. Kurzor nad úkolem zobrazí popis úkolu.",
+    "view_buttons": ["Smazat úkoly [P]", "Přidat nový úkol [O]", "Zavřít [ESC]"],
+    "view_erase_tasks": ["Jste si jisti?", "Potvrzením budou všechny úkoly smazány."],
+    "view_erase_buttons": ["Potvrdit", "Zrušit"],
+    "view_check_box": "Skrýt dokončené úkoly",
+    "view_filters": ["Řadit úkoly podle data dokončení, od starších po novější",
+      "Řadit úkoly podle data dokončení a skrýt úkoly bez něj",
+      "Řadit úkoly podle abecedy vzestupně (od A do Z)",
+      "Řadit úkoly podle abecedy sestupně (od Z do A)"],
+
+    "settings_title": "Nastavení",
+    "settings_close": "Zavřít",
+    "settings_labels": ["Jazyk zobrazení"]
   }
 }
