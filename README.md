@@ -1,14 +1,15 @@
 # CoreNote
-CoreNote is an open-source planning software desktop app and a long-term project of mine. At the moment, it is in early development and lacks many features, including compatibility with other devices.
+CoreNote is an open-source planning software desktop application. It is built with the PyQt binding, PySide6 framework and coded in Python.
 
-I chose to develop a simple offline planning software type application because of how useful I found other To Do apps to be.
-
-It is built with the Qt Python binding, PySide6 and coded in Python.
+## Current features include:
+> - A welcome window where the user can choose from CS/EN localizations.
+> - An overview window where latest tasks are displayed, along with date, time, and much more
+> - Fully functional task management functionality, special task overview window
+> - All data is saved in a compact JSON file, including basic user preferences
 
 ## Planned features include:
-> - A welcome to program window to greet the user
-> - A main window where the user can navigate the application.
-> - The ability to create, view, delete and edit tasks.
-> - A calendar for any given month
+> - A functional calendar
+> - Task and calendar connection
+> - A log file in English
 
-More TBA :)
+Currently, the project is in a early beta phase.
