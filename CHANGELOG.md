@@ -1,18 +1,16 @@
-## [0.0.1] - 2023-10-15
+## [1.0.0] - 2024-02-25
 
 ### Added
-- Welcome to program window (which only runs once)
-- JSON file to keep track of data
-- Ability to choose language
-- Main window (menus and items)
-- Error popup if necessary JSON files not found in project
+- Dynamic main window with quick actions
+- About and settings windows
+- Task manager functionality
+- Basic calendar functionality
 
 ### Changed
-- Welcome to program window can be resized without messing up UI
-- Language can be dynamically changed for a window (based on current language in JSON)
+- Main window now allows user to open calendar in the My day section
+- Deleted display mode in settings, causes unexpected behaviour
 
 ## [Unreleased]
 
 ### Added
-- New task window
-- Ability to create new tasks (which are saved in JSON data file)
+- Individual day summary in calendar
