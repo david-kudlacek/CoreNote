@@ -101,8 +101,7 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
             case 1:
                 tasks = {key: value for key, value in tasks.items() if value["date"] is not None}
                 tasks = dict(sorted(tasks.items(), key=lambda x: (
-                    x[1]["date"][0], x[1]["date"][1], x[1]["date"][2]
-                )))
+                    x[1]["date"][0], x[1]["date"][1], x[1]["date"][2])))
             case 2:
                 tasks = dict(sorted(tasks.items(), key=lambda x: x[1]["name"]))
             case 3:

@@ -11,7 +11,7 @@
     "main_home_date": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
       "Today is"],
     "main_home_sections": ["Recent tasks", "Summary overview", "Quick Note"],
-    "main_home_my_day": "Finished tasks",
+    "main_home_my_day": ["Finished tasks", "Open calendar"],
     "main_home_note": "You can write here",
     "main_home_note_buttons": ["Clear text", "Add to notes"],
     "main_home_reminder": "Tip: hovering over a button shows its tooltip.",
@@ -44,8 +44,17 @@
 
     "settings_title": "Settings",
     "settings_close": "Close",
-    "settings_labels": ["Display Language", "Display Mode"],
-    "settings_modes": ["Light mode", "Use system settings"]
+    "settings_labels": ["Display Language"],
+
+    "calendar_title": "Calendar",
+    "calendar_count": ["Number of tasks:", "No tasks"],
+    "calendar_buttons": ["last", "next"],
+    "calendar_progress": ["Monthly path towards completion...",
+                          "All done, enjoy a deserved rest!",
+                          "No progress to record here"],
+    "calendar_days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "calendar_months": ["January", "February", "March", "April", "May", "June", "July",
+                        "August", "September", "October", "November", "December"]
   },
   "cs": {
     "welcome_title": "Vítejte v CoreNote",
@@ -60,7 +69,7 @@
     "main_home_date": ["Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle",
       "Dnes je"],
     "main_home_sections": ["Poslední úkoly", "Shrnující přehled", "Rychlá poznámka"],
-    "main_home_my_day": "Dokončených úkolů",
+    "main_home_my_day": ["Dokončených úkolů", "Otevřít kalendář"],
     "main_home_note": "Zde se můžete rozepsat",
     "main_home_note_buttons": ["Vymazat text", "Přidat do poznámek"],
     "main_home_reminder": "Tip: umístěním kurzoru na tlačítko se zobrazí jeho popis.",
@@ -93,6 +102,16 @@
 
     "settings_title": "Nastavení",
     "settings_close": "Zavřít",
-    "settings_labels": ["Jazyk zobrazení"]
+    "settings_labels": ["Jazyk zobrazení"],
+
+    "calendar_title": "Kalendář",
+    "calendar_count": ["Počet úkolů:", "No tasks"],
+    "calendar_buttons": ["minulý", "další"],
+    "calendar_progress": ["Měsíční cesta ke splnění všech povinností...",
+                          "Vše hotovo, užijte si zasloužený odpočinek!",
+                          "Zde není co sledovat"],
+    "calendar_days": ["po", "út", "st", "čt", "pá", "so", "ne"],
+    "calendar_months": ["leden", "únor", "březen", "duben", "květen", "červen", "červenec",
+                        "srpen", "září", "říjen", "listopad", "prosinec"]
   }
 }

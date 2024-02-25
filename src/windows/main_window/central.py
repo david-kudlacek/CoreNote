@@ -15,6 +15,7 @@ from src import main, strings
 
 from src.windows.task_windows.new_task import NewTaskWindow
 from src.windows.task_windows.view_tasks import ViewTasksWindow
+from src.windows.calendar_windows.view_calendar import ViewCalendarWindow
 from src.windows.about_window.about import AboutWindow
 from src.windows.settings_window.settings import SettingsWindow
 
@@ -33,7 +34,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.lb_home_welcome = QtWidgets.QLabel
         self.lb_home_sections = []
         self.lb_home_date = QtWidgets.QLabel
-        self.pb_home_my_day = QtWidgets.QPushButton
+        self.pb_home_my_day = [QtWidgets.QPushButton, QtWidgets.QPushButton]
         self.pte_home_note = QtWidgets.QPlainTextEdit
         self.pb_home_note_clear = QtWidgets.QPushButton
         self.pb_home_note_add = QtWidgets.QPushButton
@@ -51,6 +52,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.a_Quit.triggered.connect(self.close)
         self.a_NewTask.triggered.connect(partial(self.open_window, "new_task"))
         self.a_ViewTasks.triggered.connect(partial(self.open_window, "view_tasks"))
+        self.a_ViewCalendar.triggered.connect(partial(self.open_window, "calendar"))
         self.a_About.triggered.connect(partial(self.open_window, "about"))
         self.a_Settings.triggered.connect(partial(self.open_window, "settings"))
 
@@ -146,6 +148,12 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         my_day.setSizePolicy(new_size_policy)
         my_day.clicked.connect(partial(self.open_window, "view_tasks"))
 
+        # Calendar button
+        pb_calendar = QtWidgets.QPushButton("")
+        pb_calendar.setStyleSheet("text-align: center;")
+        pb_calendar.setFont(QtGui.QFont('Segoe UI', 9))
+        pb_calendar.clicked.connect(partial(self.open_window, "calendar"))
+
         # Note section construction
         note = QtWidgets.QPlainTextEdit()
         note.setFont(QtGui.QFont('Segoe UI', 12))
@@ -181,7 +189,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         layout.addWidget(lb_home_calendar, 3, 2, 1, 2)
         layout.addWidget(lb_home_notes, 3, 4, 1, 2)
 
-        layout.addWidget(my_day, 4, 2, 5, 2)
+        layout.addWidget(my_day, 4, 2, 4, 2)
+        layout.addWidget(pb_calendar, 8, 2, 1, 2)
         layout.addWidget(note, 4, 4, 4, 2)
         layout.addWidget(note_clear, 8, 4, 1, 1)
         layout.addWidget(note_add, 8, 5, 1, 1)
@@ -206,7 +215,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.lb_home_sections.append(lb_home_notes)
         self.lb_home_date = lb_date
         self.lb_home_reminder = lb_reminder
-        self.pb_home_my_day = my_day
+        self.pb_home_my_day[0] = my_day
+        self.pb_home_my_day[1] = pb_calendar
         self.pte_home_note = note
         self.pb_home_note_clear = note_clear
         self.pb_home_note_add = note_add
@@ -249,12 +259,6 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
                 task.setObjectName(f"task_home_{task_id}")
                 task.clicked.connect(partial(self.open_window, "task", task_id))
 
-                # Mark task as done or not done, visual reminder
-                if data["tasks"][f"task_{task_id}"]["finished"] is False:
-                    task.setStyleSheet("QPushButton { text-align: left; }")
-                else:
-                    task.setStyleSheet("QPushButton { text-align: left; background-color:#94f2ef;}")
-
                 self.home_layout.addWidget(task, row, 0, 1, 2)
                 row += 1
 
@@ -272,8 +276,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
             entries.pop(0)
 
         # Update my day task count
-        my_day = strings.get_strings()["main_home_my_day"]
-        self.pb_home_my_day.setText(f"{my_day}\n{completed_tasks} / {len(entries)}")
+        my_day = strings.get_strings()["main_home_my_day"][0]
+        self.pb_home_my_day[0].setText(f"{my_day}\n{completed_tasks} / {len(entries)}")
 
     @QtCore.Slot()
     def update_time(self):
@@ -295,6 +299,10 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
             self.update_home_tasks()
 
         match name:
+            case "calendar":
+                self.form = ViewCalendarWindow()
+                self.form.exec()
+                self.update_home_tasks()
             case "settings":
                 self.form = SettingsWindow(self)
                 self.form.show()
@@ -338,6 +346,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         note = string_data["main_home_note"]
         note_buttons = string_data["main_home_note_buttons"]
         reminder = string_data["main_home_reminder"]
+        my_day = string_data["main_home_my_day"]
         self.lb_home_welcome.setText(title)
         self.lb_home_sections[0].setText(sections[0])
         self.lb_home_sections[1].setText(sections[1])
@@ -348,6 +357,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.lb_home_reminder.setText(reminder)
 
         # My day is updated in update tasks function
+        self.pb_home_my_day[1].setText(my_day[1])
 
         date = string_data["main_home_date"]
         self.lb_home_date.setText(f"{date[7]} {self.current_date}, {date[self.current_day]}")
