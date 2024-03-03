@@ -1,9 +1,11 @@
 {
-    "version": "1.0.0-beta",
-    "language": "cs",
+    "version": "1.0.0-stable",
+    "language": "en",
     "first_run": true,
     "task_filter": 0,
     "hide_filter": false,
+    "hide_completed": false,
     "task_count": 0,
-    "tasks": {}
+    "tasks": {},
+    "notes": {}
 }

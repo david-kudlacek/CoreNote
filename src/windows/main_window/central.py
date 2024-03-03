@@ -94,7 +94,10 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
 
     @QtCore.Slot()
     def setup_home_layout(self, layout):
+        data = main.get_data()
+
         # Time and date variables
+        date = QtCore.QDate.currentDate().toString("ddMMyyyy")
         cur_date = datetime.date.today().strftime("%d/%m/%Y")
         cur_time = datetime.datetime.now().strftime("%H:%M:%S")
         cur_day = datetime.datetime.now().weekday()
@@ -156,9 +159,12 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
 
         # Note section construction
         note = QtWidgets.QPlainTextEdit()
-        note.setFont(QtGui.QFont('Segoe UI', 12))
+        note.setFont(QtGui.QFont('Segoe UI', 11))
         note.setPlaceholderText("")
         note.setSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+
+        # if QtCore.QDate.currentDate().toString("ddMMyyyy") in data["notes"]:
+        #     note.setPlainText(data["notes"][date])
 
         def clear_note():
             note.clear()
@@ -170,11 +176,14 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         note_clear.clicked.connect(clear_note)
 
         def add_note():
+            data["notes"][date] = note.toPlainText()
+
             confirmation = strings.get_strings()["main_home_note_add"]
             self.sb_Status.showMessage(confirmation)
 
             note.clear()
             note_clear.clearFocus()
+            main.write_data(data)
 
         note_add = QtWidgets.QPushButton("")
         note_add.setFont(QtGui.QFont('Segoe UI', 9))

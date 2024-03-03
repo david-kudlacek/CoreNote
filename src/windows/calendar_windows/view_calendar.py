@@ -12,7 +12,7 @@ from PySide6 import QtWidgets
 from src.windows.calendar_windows import calendar_window
 from src import main, strings
 
-from src.windows.task_windows.new_task import NewTaskWindow
+from src.windows.calendar_windows.view_day import ViewDayWindow
 
 
 class ViewCalendarWindow(QtWidgets.QDialog, calendar_window.Ui_w_CalendarWindow):
@@ -137,8 +137,14 @@ class ViewCalendarWindow(QtWidgets.QDialog, calendar_window.Ui_w_CalendarWindow)
         # Set the buttons for this and next month
         for i in range(total_days - first_weekday):
             button = self.findChild(QtWidgets.QPushButton, f"pb_day_{i + first_weekday}")
+
+            try:
+                button.clicked.disconnect()
+            except Exception:
+                pass
+
             if i <= first_day - 1:
-                button.clicked.connect(partial(self.open_day, self.current_day,
+                button.clicked.connect(partial(self.open_day, i + 1,
                                                self.current_month, self.current_year))
                 button.setText(str(i + 1))
                 button.setEnabled(True)
@@ -156,10 +162,8 @@ class ViewCalendarWindow(QtWidgets.QDialog, calendar_window.Ui_w_CalendarWindow)
 
     @QtCore.Slot()
     def open_day(self, day, month, year):
-        pass
-        # self.form = DayCalendarWindow(day, self)
-        # self.form.exec()
-        # self.update_calendar()
+        self.form = ViewDayWindow(self, day, month, year)
+        self.form.exec()
 
     @QtCore.Slot()
     def init_strings(self):
