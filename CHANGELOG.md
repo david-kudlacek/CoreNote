@@ -1,16 +1,16 @@
-## [1.0.0] - 2024-02-25
+## [1.0.0] - 2024-03-03
 
 ### Added
-- Dynamic main window with quick actions
-- About and settings windows
-- Task manager functionality
-- Basic calendar functionality
+- Added a new window to calendar, the day window
+- Buttons in calendar are now linked to respective day
+- Quick note changes note for the current day
 
 ### Changed
-- Main window now allows user to open calendar in the My day section
-- Deleted display mode in settings, causes unexpected behaviour
+- Cleaned strings and changed data.json structuring
+- Now stores note data for each day
+- Sped up calendar loading, less recurrent calls
 
 ## [Unreleased]
 
 ### Added
-- Individual day summary in calendar
+- To be announced

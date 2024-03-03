@@ -14,14 +14,17 @@ from src import main, strings
 
 
 class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
-    def __init__(self, task_id=0, form=None):
+    def __init__(self, task_id=0, form=None, date=None):
         super().__init__()
         self.setupUi(self)
 
-        # Localization
+        # Set variables
         self.task_id = task_id
-        self.le_name.setFocus()
+        self.date = date
+
+        # Localization
         self.init_strings()
+        self.le_name.setFocus()
 
         # Are we editing or creating a task?
         if task_id == 0:
@@ -31,8 +34,13 @@ class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
             self.pb_remove.setFixedSize(0, 0)
 
             # Setup date and time widgets
-            self.de_duedate.setDate(QtCore.QDate.currentDate())
-            self.de_duedate.setEnabled(False)
+            if self.date is None:
+                self.de_duedate.setDate(QtCore.QDate.currentDate())
+                self.de_duedate.setEnabled(False)
+            else:
+                self.cb_timed.setChecked(True)
+                self.de_duedate.setEnabled(True)
+                self.de_duedate.setDate(self.date)
         else:
             data = main.get_data()["tasks"][f"task_{task_id}"]
 
@@ -49,8 +57,13 @@ class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
                 self.de_duedate.setEnabled(True)
                 self.de_duedate.setDate(date)
             else:
-                self.de_duedate.setEnabled(False)
-                self.de_duedate.setDate(QtCore.QDate.currentDate())
+                if self.date is None:
+                    self.de_duedate.setDate(QtCore.QDate.currentDate())
+                    self.de_duedate.setEnabled(False)
+                else:
+                    self.cb_timed.setChecked(True)
+                    self.de_duedate.setEnabled(True)
+                    self.de_duedate.setDate(self.date)
 
             if form is not None:
                 self.pb_complete.clicked.connect(partial(self.complete_task, form))
@@ -74,7 +87,7 @@ class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
     @QtCore.Slot()
     def add_task(self):
         # Name length rule, prevent short or long names
-        if len(self.le_name.text()) < 4 or len(self.le_name.text()) > 40:
+        if len(self.le_name.text()) < 4 or len(self.le_name.text()) > 32:
             self.le_name.setFocus()
             return 0
 

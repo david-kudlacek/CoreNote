@@ -101,8 +101,7 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
             case 1:
                 tasks = {key: value for key, value in tasks.items() if value["date"] is not None}
                 tasks = dict(sorted(tasks.items(), key=lambda x: (
-                    x[1]["date"][0], x[1]["date"][1], x[1]["date"][2]
-                )))
+                    x[1]["date"][0], x[1]["date"][1], x[1]["date"][2])))
             case 2:
                 tasks = dict(sorted(tasks.items(), key=lambda x: x[1]["name"]))
             case 3:
@@ -247,10 +246,10 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
 
         self.g_contents.setTitle(string_data["view_title"])
 
-        view_buttons = string_data["view_buttons"]
-        self.pb_erase_tasks.setText(view_buttons[0])
-        self.pb_add_task.setText(view_buttons[1])
-        self.pb_close.setText(view_buttons[2])
+        buttons = string_data["view_buttons"]
+        self.pb_erase_tasks.setText(buttons[0])
+        self.pb_add_task.setText(buttons[1])
+        self.pb_close.setText(buttons[2])
 
         check_box = string_data["view_check_box"]
         self.cb_hide.setText(check_box)
