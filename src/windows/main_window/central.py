@@ -94,10 +94,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
 
     @QtCore.Slot()
     def setup_home_layout(self, layout):
-        data = main.get_data()
-
         # Time and date variables
-        date = QtCore.QDate.currentDate().toString("ddMMyyyy")
         cur_date = datetime.date.today().strftime("%d/%m/%Y")
         cur_time = datetime.datetime.now().strftime("%H:%M:%S")
         cur_day = datetime.datetime.now().weekday()
@@ -176,6 +173,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         note_clear.clicked.connect(clear_note)
 
         def add_note():
+            data = main.get_data()
+            date = QtCore.QDate.currentDate().toString("ddMMyyyy")
             data["notes"][date] = note.toPlainText()
 
             confirmation = strings.get_strings()["main_home_note_add"]
