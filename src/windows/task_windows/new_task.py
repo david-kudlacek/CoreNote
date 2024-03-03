@@ -87,7 +87,7 @@ class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
     @QtCore.Slot()
     def add_task(self):
         # Name length rule, prevent short or long names
-        if len(self.le_name.text()) < 4 or len(self.le_name.text()) > 32:
+        if len(self.le_name.text()) < 4 or len(self.le_name.text()) > 40:
             self.le_name.setFocus()
             return 0
 

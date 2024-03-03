@@ -18,7 +18,6 @@ default_data = {
     "first_run": True,
     "task_filter": 0,
     "hide_filter": False,
-    "hide_completed": False,
     "task_count": 0,
     "tasks": {},
     "notes": {}
