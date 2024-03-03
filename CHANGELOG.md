@@ -1,18 +1,16 @@
-## [0.0.1] - 2023-10-15
+## [1.0.0] - 2024-03-03
 
 ### Added
-- Welcome to program window (which only runs once)
-- JSON file to keep track of data
-- Ability to choose language
-- Main window (menus and items)
-- Error popup if necessary JSON files not found in project
+- Added a new window to calendar, the day window
+- Buttons in calendar are now linked to respective day
+- Quick note changes note for the current day
 
 ### Changed
-- Welcome to program window can be resized without messing up UI
-- Language can be dynamically changed for a window (based on current language in JSON)
+- Cleaned strings and changed data.json structuring
+- Now stores note data for each day
+- Sped up calendar loading, less recurrent calls
 
 ## [Unreleased]
 
 ### Added
-- New task window
-- Ability to create new tasks (which are saved in JSON data file)
+- To be announced
