@@ -10,7 +10,8 @@ import json
 from src.windows.main_window import central
 
 version = "1.0.0-stable"
-root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
+root_directory = next((path for path in iter(lambda: os.path.dirname(os.getcwd()), os.getcwd())
+                       if "CoreNote" in path), os.getcwd())
 task_limit = 99
 default_data = {
     "version": version,
@@ -28,8 +29,7 @@ def find_file(target_file):
     for root, dirs, files in os.walk(root_directory):
         if target_file in files:
             file_path = os.path.join(root, target_file)
-            if "res" in file_path or "src" in file_path:
-                return file_path
+            return file_path
     return None
 
 
