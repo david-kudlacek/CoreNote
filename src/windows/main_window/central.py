@@ -371,7 +371,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.lb_home_date.setText(f"{date[7]} {self.current_date}, {date[self.current_day]}")
 
 
-def integrity_check():
+def integrity_check(app):
     if main.string_file is None or main.style_file is None:
         msg_box = QtWidgets.QMessageBox()
         msg_box.setWindowTitle("Error!")
@@ -385,7 +385,7 @@ def integrity_check():
 def construct():
     app = QtWidgets.QApplication(sys.argv)
 
-    integrity_check()
+    integrity_check(app)
     window = MainWindow()
     sys.exit(app.exec())
 
