@@ -34,8 +34,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.lb_home_welcome = QtWidgets.QLabel
         self.lb_home_sections = []
         self.lb_home_date = QtWidgets.QLabel
-        self.pb_home_my_day = [QtWidgets.QPushButton, QtWidgets.QPushButton]
         self.pte_home_note = QtWidgets.QPlainTextEdit
+        self.pb_home_my_day = [0, 0, 0]
         self.pb_home_note_clear = QtWidgets.QPushButton
         self.pb_home_note_add = QtWidgets.QPushButton
         self.lb_home_reminder = QtWidgets.QLabel
@@ -43,6 +43,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.tabs = QtWidgets.QTabWidget
         self.home_layout = QtWidgets.QGridLayout
 
+        # For future customization purposes, work in progress
         # self.central_widget.setStyleSheet("background-color: #bad5ff;")
         # self.mb_Menu.setStyleSheet("background-color: #f0f6ff;")
 
@@ -85,8 +86,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.home_layout = home_layout
         self.setup_home_layout(home_layout)
 
-        # calendar = QtWidgets.QPushButton("hi")
-        # notes = QtWidgets.QPushButton("Dělá se na tom")
+        # calendar = QtWidgets.QPushButton("WIP")
+        # notes = QtWidgets.QPushButton("WIP")
 
         tabs.addTab(home_page, "Domů")
         # tabs.addTab(notes, "Poznámky")
@@ -154,6 +155,12 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         pb_calendar.setFont(QtGui.QFont('Segoe UI', 9))
         pb_calendar.clicked.connect(partial(self.open_window, "calendar"))
 
+        # New task button
+        pb_new_task = QtWidgets.QPushButton("")
+        pb_new_task.setStyleSheet("text-align: center;")
+        pb_new_task.setFont(QtGui.QFont('Segoe UI', 9))
+        pb_new_task.clicked.connect(partial(self.open_window, "new_task"))
+
         # Note section construction
         note = QtWidgets.QPlainTextEdit()
         note.setFont(QtGui.QFont('Segoe UI', 11))
@@ -198,7 +205,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         layout.addWidget(lb_home_notes, 3, 4, 1, 2)
 
         layout.addWidget(my_day, 4, 2, 4, 2)
-        layout.addWidget(pb_calendar, 8, 2, 1, 2)
+        layout.addWidget(pb_new_task, 8, 2, 1, 1)
+        layout.addWidget(pb_calendar, 8, 3, 1, 1)
         layout.addWidget(note, 4, 4, 4, 2)
         layout.addWidget(note_clear, 8, 4, 1, 1)
         layout.addWidget(note_add, 8, 5, 1, 1)
@@ -224,7 +232,8 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         self.lb_home_date = lb_date
         self.lb_home_reminder = lb_reminder
         self.pb_home_my_day[0] = my_day
-        self.pb_home_my_day[1] = pb_calendar
+        self.pb_home_my_day[1] = pb_new_task
+        self.pb_home_my_day[2] = pb_calendar
         self.pte_home_note = note
         self.pb_home_note_clear = note_clear
         self.pb_home_note_add = note_add
@@ -347,7 +356,6 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
 
         tabs = string_data["main_tabs"]
         self.tabs.setTabText(0, tabs[0])
-        # self.tabs.setTabText(1, tabs[1])
 
         title = string_data["main_home_welcome"]
         sections = string_data["main_home_sections"]
@@ -355,6 +363,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
         note_buttons = string_data["main_home_note_buttons"]
         reminder = string_data["main_home_reminder"]
         my_day = string_data["main_home_my_day"]
+
         self.lb_home_welcome.setText(title)
         self.lb_home_sections[0].setText(sections[0])
         self.lb_home_sections[1].setText(sections[1])
@@ -366,6 +375,7 @@ class MainWindow(QtWidgets.QMainWindow, main_window.Ui_mw_MainWindow):
 
         # My day is updated in update tasks function
         self.pb_home_my_day[1].setText(my_day[1])
+        self.pb_home_my_day[2].setText(my_day[2])
 
         date = string_data["main_home_date"]
         self.lb_home_date.setText(f"{date[7]} {self.current_date}, {date[self.current_day]}")

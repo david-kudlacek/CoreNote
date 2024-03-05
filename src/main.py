@@ -9,7 +9,7 @@ import json
 
 from src.windows.main_window import central
 
-version = "1.0.0-stable"
+version = "1.1.0-stable"
 root_directory = next((path for path in iter(lambda: os.path.dirname(os.getcwd()), os.getcwd())
                        if "CoreNote" in path), os.getcwd())
 task_limit = 99

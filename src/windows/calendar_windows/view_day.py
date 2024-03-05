@@ -40,6 +40,7 @@ class ViewDayWindow(QtWidgets.QDialog, day_window.Ui_w_DayWindow):
         # Set shortcuts
         self.pb_add_task.setShortcut("O")
         self.pb_close.setShortcut("ESC")
+        self.pb_placeholder.setEnabled(False)
 
         # Set button actions
         self.pb_add_task.clicked.connect(self.open_new_task)
@@ -77,11 +78,16 @@ class ViewDayWindow(QtWidgets.QDialog, day_window.Ui_w_DayWindow):
             name.setObjectName(f"name_{task_id}")
             name.clicked.connect(partial(self.open_task, task_id))
 
+            # Ensure object displays correctly
+            # Observed width is 292 pixels
+            name.setMinimumHeight(24)
+
             # Mark task as done or not done, visual reminder
             if data["tasks"][f"task_{task_id}"]["finished"] is False:
                 name.setStyleSheet("QPushButton { text-align: left; }")
             else:
-                name.setStyleSheet("QPushButton { text-align: left; background-color:#94f2ef;}")
+                name.setStyleSheet("QPushButton { text-align: left; background-color:#ADD8E6;"
+                                   "text-decoration: line-through; padding-left: 3px;}")
 
             grid.addWidget(name, row, 0)
             grid.setColumnStretch(0, 1)
@@ -125,7 +131,8 @@ class ViewDayWindow(QtWidgets.QDialog, day_window.Ui_w_DayWindow):
             name.setStyleSheet("QPushButton { text-align: left; }")
         else:
             data["tasks"][f"task_{task_id}"]["finished"] = True
-            name.setStyleSheet("QPushButton { text-align: left; background-color:#94f2ef;}")
+            name.setStyleSheet("QPushButton { text-align: left; background-color:#ADD8E6;"
+                               "text-decoration: line-through; padding: 5px;}")
 
         main.write_data(data)
 
@@ -180,7 +187,7 @@ class ViewDayWindow(QtWidgets.QDialog, day_window.Ui_w_DayWindow):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
-    window = ViewDayWindow(None, 0, 0, 0)
+    window = ViewDayWindow(None, 5, 3, 2024)
     window.show()
 
     sys.exit(app.exec())
