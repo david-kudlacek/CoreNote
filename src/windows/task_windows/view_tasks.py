@@ -14,12 +14,6 @@ from src import main, strings
 from src.windows.task_windows.new_task import NewTaskWindow
 
 
-class CenterAlignedDelegate(QtWidgets.QStyledItemDelegate):
-    def paint(self, painter, option, index):
-        option.displayAlignment = QtCore.Qt.AlignCenter
-        super().paint(painter, option, index)
-
-
 class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
     def __init__(self):
         super().__init__()
@@ -31,15 +25,6 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
         # Set strings and show window
         self.init_strings()
         self.setFixedSize(self.size())
-
-        # Setup combo box widget
-        delegate = CenterAlignedDelegate(self.cb_filters)
-        self.cb_filters.setItemDelegate(delegate)
-        self.cb_filters.setEditable(True)
-        line_edit = self.cb_filters.lineEdit()
-        line_edit.setAlignment(QtCore.Qt.AlignCenter)
-        line_edit.setReadOnly(True)
-        # self.cb_filters.setStyleSheet("QComboBox { background-color: #e1e1e1; }")
 
         # Setup task filters and check box
         filters = strings.get_strings()["view_filters"]
@@ -69,9 +54,13 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
 
     @QtCore.Slot()
     def update_list(self):
-        # Get data.json source data
+        # User application data
         data = main.get_data()
         tasks = data["tasks"]
+
+        # String localisation data
+        string_data = strings.get_strings()
+        buttons = string_data["view_buttons"]
 
         # Update user preferences
         if self.cb_hide.isChecked():
@@ -84,7 +73,6 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
         # Save user preferences
         main.write_data(data)
 
-        # Filter legend by index
         # 0 - Timed first, earlier to later
         # 1 - Timed first, later to earlier
         # 2 - Sort Alphabetically
@@ -125,23 +113,32 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
             name.setObjectName(f"name_{task_id}")
             name.clicked.connect(partial(self.open_task, task_id))
 
+            # Ensure object displays correctly
+            # Observed width is 350 pixels
+            name.setMinimumHeight(26)
+
             if value["date"] is not None:
                 day, month, year = value["date"][0], value["date"][1], value["date"][2]
-                date_time = f"{day}/{month}"
+                weekday = string_data["calendar_days"][QtCore.QDate(year, month, day).dayOfWeek() - 1]
+
+                date_time = f"{weekday} {day}. {month}"
             else:
-                date_time = "N/A"
+                date_time = "——"
 
             date = QtWidgets.QLabel(f"{date_time}")
-            date.setAlignment(QtCore.Qt.AlignCenter)
             date.setFont(QtGui.QFont('Segoe UI', 10))
-            date.setObjectName(f"date_{task_id}")
+            date.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignVCenter)
 
-            complete = QtWidgets.QPushButton("Hotovo")
+            if value["finished"]:
+                complete = QtWidgets.QPushButton(f"{buttons[3]}")
+            else:
+                complete = QtWidgets.QPushButton(f"{buttons[4]}")
+
             complete.setFont(QtGui.QFont('Segoe UI', 10))
             complete.setObjectName(f"complete_{task_id}")
             complete.clicked.connect(partial(self.complete_task, task_id))
 
-            delete = QtWidgets.QPushButton(f"Smazat")
+            delete = QtWidgets.QPushButton(f"{buttons[5]}")
             delete.setFont(QtGui.QFont('Segoe UI', 10))
             delete.setObjectName(f"delete_{task_id}")
             delete.clicked.connect(partial(self.delete_task, task_id))
@@ -152,9 +149,10 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
                 complete.setStyleSheet("")
                 delete.setStyleSheet("")
             else:
-                name.setStyleSheet("QPushButton { text-align: left; background-color:#94f2ef;}")
-                complete.setStyleSheet("background-color:#94f2ef")
-                delete.setStyleSheet("background-color:#f29494")
+                name.setStyleSheet("QPushButton { text-align: left; background-color:#ADD8E6;"
+                                   "text-decoration: line-through; padding-left: 3px;}")
+                complete.setStyleSheet("background-color:#ADD8E6")
+                delete.setStyleSheet("background-color:#ADD8E6")
 
             grid.addWidget(name, row, 0)
             grid.addWidget(date, row, 1)
@@ -175,8 +173,13 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
 
     @QtCore.Slot()
     def complete_task(self, task_id):
-        # Get data.json source data
+        # User application data
         data = main.get_data()
+
+        # String localisation data
+        string_data = strings.get_strings()
+        buttons = string_data["view_buttons"]
+
         name = self.findChild(QtWidgets.QPushButton, f"name_{task_id}")
         complete = self.findChild(QtWidgets.QPushButton, f"complete_{task_id}")
         delete = self.findChild(QtWidgets.QPushButton, f"delete_{task_id}")
@@ -186,12 +189,15 @@ class ViewTasksWindow(QtWidgets.QDialog, tasks_window.Ui_w_TasksWindow):
             data["tasks"][f"task_{task_id}"]["finished"] = False
             name.setStyleSheet("QPushButton { text-align: left; }")
             complete.setStyleSheet("")
+            complete.setText(f"{buttons[4]}")
             delete.setStyleSheet("")
         else:
             data["tasks"][f"task_{task_id}"]["finished"] = True
-            name.setStyleSheet("QPushButton { text-align: left; background-color:#94f2ef;}")
-            complete.setStyleSheet("background-color:#94f2ef")
-            delete.setStyleSheet("background-color:#f29494")
+            name.setStyleSheet("QPushButton { text-align: left; background-color:#ADD8E6;"
+                               "text-decoration: line-through; padding-left: 3px;}")
+            complete.setStyleSheet("background-color:#ADD8E6")
+            complete.setText(f"{buttons[3]}")
+            delete.setStyleSheet("background-color:#ADD8E6")
 
         main.write_data(data)
 

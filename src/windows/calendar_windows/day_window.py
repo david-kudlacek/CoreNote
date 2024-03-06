@@ -25,7 +25,7 @@ class Ui_w_DayWindow(object):
         if not w_DayWindow.objectName():
             w_DayWindow.setObjectName(u"w_DayWindow")
         w_DayWindow.setWindowModality(Qt.ApplicationModal)
-        w_DayWindow.resize(369, 459)
+        w_DayWindow.resize(393, 459)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -85,44 +85,12 @@ class Ui_w_DayWindow(object):
 
         self.gridLayout_2.addWidget(self.ver_line_01, 0, 4, 1, 1)
 
-        self.sa_task_list = QScrollArea(self.g_contents)
-        self.sa_task_list.setObjectName(u"sa_task_list")
-        self.sa_task_list.setEnabled(True)
-        self.sa_task_list.setMaximumSize(QSize(312, 16777215))
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(9)
-        self.sa_task_list.setFont(font2)
-        self.sa_task_list.setFrameShape(QFrame.StyledPanel)
-        self.sa_task_list.setWidgetResizable(True)
-        self.sa_task_list.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.sa_contents = QWidget()
-        self.sa_contents.setObjectName(u"sa_contents")
-        self.sa_contents.setGeometry(QRect(0, 0, 310, 135))
-        self.sa_contents.setFont(font2)
-        self.gridLayout_3 = QGridLayout(self.sa_contents)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.pb_task_ex = QPushButton(self.sa_contents)
-        self.pb_task_ex.setObjectName(u"pb_task_ex")
-        self.pb_task_ex.setFont(font2)
-
-        self.gridLayout_3.addWidget(self.pb_task_ex, 1, 0, 1, 1)
-
-        self.pb_task_ex_2 = QPushButton(self.sa_contents)
-        self.pb_task_ex_2.setObjectName(u"pb_task_ex_2")
-
-        self.gridLayout_3.addWidget(self.pb_task_ex_2, 2, 0, 1, 1)
-
-        self.sa_task_list.setWidget(self.sa_contents)
-
-        self.gridLayout_2.addWidget(self.sa_task_list, 6, 1, 1, 6)
-
         self.lb_day = QLabel(self.g_contents)
         self.lb_day.setObjectName(u"lb_day")
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        font3.setPointSize(24)
-        self.lb_day.setFont(font3)
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI"])
+        font2.setPointSize(24)
+        self.lb_day.setFont(font2)
         self.lb_day.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_2.addWidget(self.lb_day, 0, 1, 1, 1)
@@ -130,10 +98,10 @@ class Ui_w_DayWindow(object):
         self.lb_tasks = QLabel(self.g_contents)
         self.lb_tasks.setObjectName(u"lb_tasks")
         self.lb_tasks.setMinimumSize(QSize(130, 0))
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
-        font4.setPointSize(11)
-        self.lb_tasks.setFont(font4)
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI"])
+        font3.setPointSize(11)
+        self.lb_tasks.setFont(font3)
 
         self.gridLayout_2.addWidget(self.lb_tasks, 3, 1, 1, 2)
 
@@ -147,27 +115,27 @@ class Ui_w_DayWindow(object):
         self.pb_close = QPushButton(self.g_contents)
         self.pb_close.setObjectName(u"pb_close")
         self.pb_close.setMinimumSize(QSize(120, 0))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setPointSize(10)
-        self.pb_close.setFont(font5)
+        font4 = QFont()
+        font4.setFamilies([u"Segoe UI"])
+        font4.setPointSize(10)
+        self.pb_close.setFont(font4)
 
         self.gridLayout_2.addWidget(self.pb_close, 11, 4, 1, 3)
 
         self.pb_add_task = QPushButton(self.g_contents)
         self.pb_add_task.setObjectName(u"pb_add_task")
         self.pb_add_task.setMinimumSize(QSize(120, 0))
-        self.pb_add_task.setFont(font5)
+        self.pb_add_task.setFont(font4)
 
         self.gridLayout_2.addWidget(self.pb_add_task, 11, 1, 1, 2)
 
         self.lb_tasks_long = QLabel(self.g_contents)
         self.lb_tasks_long.setObjectName(u"lb_tasks_long")
-        font6 = QFont()
-        font6.setFamilies([u"Segoe UI"])
-        font6.setPointSize(10)
-        font6.setItalic(True)
-        self.lb_tasks_long.setFont(font6)
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(10)
+        font5.setItalic(True)
+        self.lb_tasks_long.setFont(font5)
         self.lb_tasks_long.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_2.addWidget(self.lb_tasks_long, 3, 3, 1, 4)
@@ -182,14 +150,14 @@ class Ui_w_DayWindow(object):
         self.pte_note = QPlainTextEdit(self.g_contents)
         self.pte_note.setObjectName(u"pte_note")
         self.pte_note.setMaximumSize(QSize(16777215, 100))
-        self.pte_note.setFont(font5)
+        self.pte_note.setFont(font4)
 
         self.gridLayout_2.addWidget(self.pte_note, 9, 1, 1, 6)
 
         self.lb_note = QLabel(self.g_contents)
         self.lb_note.setObjectName(u"lb_note")
         self.lb_note.setMinimumSize(QSize(70, 0))
-        self.lb_note.setFont(font4)
+        self.lb_note.setFont(font3)
 
         self.gridLayout_2.addWidget(self.lb_note, 8, 1, 1, 1)
 
@@ -202,7 +170,7 @@ class Ui_w_DayWindow(object):
 
         self.lb_note_long = QLabel(self.g_contents)
         self.lb_note_long.setObjectName(u"lb_note_long")
-        self.lb_note_long.setFont(font6)
+        self.lb_note_long.setFont(font5)
         self.lb_note_long.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_2.addWidget(self.lb_note_long, 8, 2, 1, 5)
@@ -221,16 +189,46 @@ class Ui_w_DayWindow(object):
 
         self.pb_placeholder = QPushButton(self.g_contents)
         self.pb_placeholder.setObjectName(u"pb_placeholder")
-        self.pb_placeholder.setFont(font5)
+        self.pb_placeholder.setFont(font4)
 
         self.gridLayout_2.addWidget(self.pb_placeholder, 11, 3, 1, 1)
+
+        self.sa_task_list = QScrollArea(self.g_contents)
+        self.sa_task_list.setObjectName(u"sa_task_list")
+        self.sa_task_list.setEnabled(True)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        font6.setPointSize(9)
+        self.sa_task_list.setFont(font6)
+        self.sa_task_list.setFrameShape(QFrame.StyledPanel)
+        self.sa_task_list.setWidgetResizable(True)
+        self.sa_task_list.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.sa_contents = QWidget()
+        self.sa_contents.setObjectName(u"sa_contents")
+        self.sa_contents.setGeometry(QRect(0, 0, 335, 135))
+        self.sa_contents.setFont(font6)
+        self.gridLayout_3 = QGridLayout(self.sa_contents)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.pb_task_ex = QPushButton(self.sa_contents)
+        self.pb_task_ex.setObjectName(u"pb_task_ex")
+        self.pb_task_ex.setFont(font6)
+
+        self.gridLayout_3.addWidget(self.pb_task_ex, 1, 0, 1, 1)
+
+        self.pb_task_ex_2 = QPushButton(self.sa_contents)
+        self.pb_task_ex_2.setObjectName(u"pb_task_ex_2")
+
+        self.gridLayout_3.addWidget(self.pb_task_ex_2, 2, 0, 1, 1)
+
+        self.sa_task_list.setWidget(self.sa_contents)
+
+        self.gridLayout_2.addWidget(self.sa_task_list, 4, 1, 1, 6)
 
 
         self.gridLayout.addWidget(self.g_contents, 1, 1, 1, 1)
 
         QWidget.setTabOrder(self.pb_add_task, self.pb_close)
-        QWidget.setTabOrder(self.pb_close, self.sa_task_list)
-        QWidget.setTabOrder(self.sa_task_list, self.pte_note)
+        QWidget.setTabOrder(self.pb_close, self.pte_note)
         QWidget.setTabOrder(self.pte_note, self.pb_task_ex)
         QWidget.setTabOrder(self.pb_task_ex, self.pb_task_ex_2)
         QWidget.setTabOrder(self.pb_task_ex_2, self.pb_placeholder)
@@ -243,8 +241,6 @@ class Ui_w_DayWindow(object):
     def retranslateUi(self, w_DayWindow):
         w_DayWindow.setWindowTitle(QCoreApplication.translate("w_DayWindow", u"CoreNote", None))
         self.g_contents.setTitle("")
-        self.pb_task_ex.setText(QCoreApplication.translate("w_DayWindow", u"ij", None))
-        self.pb_task_ex_2.setText(QCoreApplication.translate("w_DayWindow", u"oooooooooooooooooooooooooooooooo", None))
         self.lb_day.setText(QCoreApplication.translate("w_DayWindow", u"25", None))
         self.lb_tasks.setText(QCoreApplication.translate("w_DayWindow", u"\u00dakoly na tento den", None))
         self.lb_month.setText(QCoreApplication.translate("w_DayWindow", u"prosinec", None))
@@ -255,5 +251,7 @@ class Ui_w_DayWindow(object):
         self.lb_note_long.setText(QCoreApplication.translate("w_DayWindow", u"Pro dne\u0161ek lze zm\u011bnit v rychl\u00e9 pozn.", None))
         self.lb_weekday.setText(QCoreApplication.translate("w_DayWindow", u"pond\u011bl\u00ed", None))
         self.pb_placeholder.setText(QCoreApplication.translate("w_DayWindow", u"#####", None))
+        self.pb_task_ex.setText(QCoreApplication.translate("w_DayWindow", u"ij", None))
+        self.pb_task_ex_2.setText(QCoreApplication.translate("w_DayWindow", u"oooooooooooooooooooooooooooooooo", None))
     # retranslateUi
 

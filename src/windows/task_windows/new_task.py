@@ -32,6 +32,8 @@ class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
             self.pb_complete.setFixedSize(0, 0)
             self.pb_remove.setEnabled(False)
             self.pb_remove.setFixedSize(0, 0)
+            self.pb_state.setEnabled(False)
+            self.pb_state.setVisible(False)
 
             # Setup date and time widgets
             if self.date is None:
@@ -43,6 +45,7 @@ class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
                 self.de_duedate.setDate(self.date)
         else:
             data = main.get_data()["tasks"][f"task_{task_id}"]
+            string_data = strings.get_strings()
 
             self.le_name.setText(data["name"])
             self.pte_description.setPlainText(data["description"])
@@ -64,6 +67,11 @@ class NewTaskWindow(QtWidgets.QDialog, new_window.Ui_w_NewWindow):
                     self.cb_timed.setChecked(True)
                     self.de_duedate.setEnabled(True)
                     self.de_duedate.setDate(self.date)
+
+            if data["finished"]:
+                self.pb_state.setText(string_data["new_states"][0])
+            else:
+                self.pb_state.setText(string_data["new_states"][1])
 
             if form is not None:
                 self.pb_complete.clicked.connect(partial(self.complete_task, form))

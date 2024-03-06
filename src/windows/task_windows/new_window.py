@@ -131,6 +131,13 @@ class Ui_w_NewWindow(object):
 
         self.gridLayout_2.addWidget(self.cb_timed, 7, 1, 1, 2)
 
+        self.pb_state = QLabel(self.g_contents)
+        self.pb_state.setObjectName(u"pb_state")
+        self.pb_state.setFont(font3)
+        self.pb_state.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.gridLayout_2.addWidget(self.pb_state, 7, 3, 1, 2)
+
 
         self.gridLayout.addWidget(self.g_contents, 0, 0, 1, 1)
 
@@ -160,5 +167,6 @@ class Ui_w_NewWindow(object):
         self.le_name.setPlaceholderText(QCoreApplication.translate("w_NewWindow", u"Pojmenujte \u00fakol", None))
         self.pb_confirm.setText(QCoreApplication.translate("w_NewWindow", u"P\u0159idat \u00fakol", None))
         self.cb_timed.setText(QCoreApplication.translate("w_NewWindow", u"\u00dakol s datem dokon\u010den\u00ed", None))
+        self.pb_state.setText(QCoreApplication.translate("w_NewWindow", u"Stav: nedokon\u010den\u00fd", None))
     # retranslateUi
 
