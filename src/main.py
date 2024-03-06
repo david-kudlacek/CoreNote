@@ -10,9 +10,8 @@ import json
 from src.windows.main_window import central
 
 version = "1.1.0-stable"
-root_directory = next((path for path in iter(lambda: os.path.dirname(os.getcwd()), os.getcwd())
-                       if "CoreNote" in path), os.getcwd())
-task_limit = 99
+root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
+task_limit = 999
 default_data = {
     "version": version,
     "language": "en",
