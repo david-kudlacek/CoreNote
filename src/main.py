@@ -11,6 +11,7 @@ from src.windows.main_window import central
 
 version = "1.1.0-stable"
 root_directory = os.getcwd()[:os.getcwd().find("CoreNote")]
+# root_directory = os.getcwd()
 task_limit = 999
 default_data = {
     "version": version,

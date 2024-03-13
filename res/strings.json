@@ -13,7 +13,7 @@
     "main_home_sections": ["Recent tasks", "Summary overview", "Today's Note"],
     "main_home_my_day": ["Finished tasks", "Add new task", "Open calendar"],
     "main_home_note": "Adding will write it to the calendar",
-    "main_home_note_buttons": ["Clear text", "Add to notes"],
+    "main_home_note_buttons": ["Clear text", "Write to calendar"],
     "main_home_reminder": "Tip: hovering over a button shows its tooltip.",
     "main_home_note_add": "Today's note has been successfully modified, you can find it in the calendar under today.",
 
@@ -78,7 +78,7 @@
     "main_home_sections": ["Poslední úkoly", "Shrnující přehled", "Dnešní poznámka"],
     "main_home_my_day": ["Dokončených úkolů", "Přidat nový úkol", "Otevřít kalendář"],
     "main_home_note": "Přidáním se propíše do kalendáře",
-    "main_home_note_buttons": ["Vymazat text", "Přidat do poznámek"],
+    "main_home_note_buttons": ["Vymazat text", "Zapsat do kalendáře"],
     "main_home_reminder": "Tip: umístěním kurzoru na tlačítko se zobrazí jeho popis.",
     "main_home_note_add": "Dnešní poznámka byla úspěšně upravena, najdete ji v kalendáři pod dnešním dnem.",
 
