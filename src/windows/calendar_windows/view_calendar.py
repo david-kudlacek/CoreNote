@@ -122,9 +122,11 @@ class ViewCalendarWindow(QtWidgets.QDialog, calendar_window.Ui_w_CalendarWindow)
 
         last_month = self.current_month - 1
         last_year = self.current_year
+
         if last_month == 0:
             last_month = 12
             last_year -= 1
+
         last_day = calendar.monthrange(last_year, last_month)[1]
 
         next_month = self.current_month + 1
